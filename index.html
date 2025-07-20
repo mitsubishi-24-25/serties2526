@@ -322,9 +322,14 @@
   const searchForm = document.getElementById("searchForm");
   const searchInput = document.getElementById("searchInput");
 
-  // Toggle sidebar
+  // ✅ Toggle sidebar + close expanded card on mobile
   toggleBtn.addEventListener('click', () => {
     sidebar.classList.toggle('collapsed');
+
+    // ✅ Automatically close expanded card if in mobile view
+    if (window.innerWidth < 992) {
+      closeExpanded();  // ← this ensures expanded cards auto-close when sidebar is opened
+    }
   });
 
   // Auto-collapse sidebar on small screen resize
@@ -409,20 +414,20 @@
   }
 
   function adjustSidebarPadding() {
-  const navbar = document.querySelector('.navbar');
-  const sidebar = document.getElementById('sidebar');
-  
-  if (window.innerWidth < 992 && navbar && sidebar) {
-    sidebar.style.paddingTop = navbar.offsetHeight + 'px';
-  } else if (sidebar) {
-    sidebar.style.paddingTop = '';
+    const navbar = document.querySelector('.navbar');
+    const sidebar = document.getElementById('sidebar');
+    
+    if (window.innerWidth < 992 && navbar && sidebar) {
+      sidebar.style.paddingTop = navbar.offsetHeight + 'px';
+    } else if (sidebar) {
+      sidebar.style.paddingTop = '';
+    }
   }
-}
 
-window.addEventListener('resize', adjustSidebarPadding);
-window.addEventListener('DOMContentLoaded', adjustSidebarPadding);
-
+  window.addEventListener('resize', adjustSidebarPadding);
+  window.addEventListener('DOMContentLoaded', adjustSidebarPadding);
 </script>
+
 
 
 
