@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Keep Notes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      overflow-x: hidden;
+      background: #f1f3f4;
+    }
+
+    .navbar {
+        z-index: 1060 !important;
+    }
+
+
+    .sidebar {
+        height: 100vh;
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #fff;
+        padding-top: 60px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s;
+        z-index: 1050; /* stay under backdrop and expanded */
+    }
+
+
+    .sidebar.closed {
+      left: -250px;
+    }
+
+    @media (min-width: 992px) {
+      .sidebar {
+        left: 0 !important;
+      }
+
+      #toggleBtn {
+        display: none;
+      }
+
+      .main {
+        margin-left: 250px;
+      }
+    }
+
+    .main {
+      transition: margin-left 0.3s;
+      padding-top: 80px;
+    }
+
+    .card {
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+        .card-title {
+    white-space: nowrap;       /* Keep title in a single line */
+    overflow: hidden;          /* Hide any overflow */
+    text-overflow: ellipsis;   /* Show "..." at the end */
+    max-width: 100%;           /* Prevent overflow on narrow cards */
+    display: block;
+    }
+
+
+    .card-preview {
+        max-height: 5.5em; /* shows about 3-4 lines */
+        overflow: hidden;
+        position: relative;
+    }
+
+    .card-preview::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2em;
+        width: 100%;
+        background: linear-gradient(to bottom, transparent, rgba(13, 110, 253, 1)); /* matches bootstrap primary */
+    }
+
+
+    .note-expanded {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1070; /* increased from 1060 */
+        width: 90vw;
+        max-width: 600px;
+        max-height: 80vh;
+        overflow-y: auto;
+        background: #fff;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+    .backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 1065; /* also increase above sidebar */
+    }
+
+    #toggleBtn {
+  color: white;
+  border-color: white;
+}
+
+#toggleBtn:hover {
+  background-color: white !important;
+  color: #0d6efd !important; /* Bootstrap primary color */
+  border-color: white !important;
+}
+
+::placeholder {
+  color: #000 !important; /* or any visible color like white */
+  opacity: 1; /* ensures full opacity */
+}
+
+.card:hover {
+  box-shadow: 0.50rem 0.50rem 0.2rem rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.3s ease;
+}
+
+@media (max-width: 991.98px) {
+  #sidebar {
+    position: absolute;
+    z-index: 1050;
+    height: 100vh;
+    transition: transform 0.3s ease;
+  }
+
+  #sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+
+  #sidebar:not(.collapsed) {
+    transform: translateX(0);
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Header/Navbar -->
+ <nav class="navbar navbar-light bg-primary shadow-sm fixed-top" data-bs-theme="dark">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    
+    <!-- Left side: burger + title -->
+    <div class="d-flex align-items-center">
+      <button class="btn btn-outline-secondary me-2" id="toggleBtn">☰</button>
+
+      <!-- Full title for larger screens -->
+<span class="navbar-brand mb-0 h1 d-none d-lg-inline">School Emergency Response Team (SERT) A.Y. 2025-2026</span>
+
+<!-- Short title for small screens -->
+<span class="navbar-brand mb-0 h1 d-inline d-lg-none">SERT A.Y. '25-'26</span>
+
+    </div>
+
+    <!-- Right side: Search form -->
+    <form id="searchForm" class="d-flex ms-auto" role="search">
+      <input
+        id="searchInput"
+        class="form-control me-2 bg-white text-dark"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+    </form>
+
+  </div>
+</nav>
+
+
+
+  </div>
+</nav>
+
+
+
+  <!-- Sidebar -->
+<div class="sidebar bg-light collapsed" id="sidebar">
+    <ul class="nav flex-column px-3">
+      <li class="nav-item">
+        <a class="nav-link active fw-bold" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Officers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Certificates</a>
+      </li>
+    </ul>
+  </div>
+
+  <br>
+
+  <!-- Main content -->
+  <div class="main container" id="mainContent">
+    <div class="row" id="noteContainer">
+      <!-- Sample cards -->
+        <div class="row" id="noteContainer">
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+    <div class="card text-bg-primary p-3" onclick="expandNote(this)">
+      <h5 class="card-title">2nd Quarter Nationwide Simultaneously Earthquake Drill (NSED)</h5>
+      <div class="card-preview">
+        <p class="card-text">This are the names</p>
+        <p class="card-text">Jericho</p>
+        <p class="card-text">Clarence</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+    <div class="card text-bg-primary p-3" onclick="expandNote(this)">
+      <h5 class="card-title">Note 2</h5>
+      <div class="card-preview">
+        <p class="card-text">Tae</p>
+        <p class="card-text">Clarence</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <!-- Add more cards here -->
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+  const sidebar = document.getElementById('sidebar');
+  const toggleBtn = document.getElementById('toggleBtn');
+  const searchForm = document.getElementById("searchForm");
+  const searchInput = document.getElementById("searchInput");
+
+  // Toggle sidebar
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('collapsed');
+  });
+
+  // Auto-collapse sidebar on small screen resize
+  function handleResize() {
+    if (window.innerWidth < 992) {
+      sidebar.classList.add('collapsed');
+    } else {
+      sidebar.classList.remove('collapsed');
+    }
+  }
+  window.addEventListener('resize', handleResize);
+  window.addEventListener('DOMContentLoaded', handleResize);
+
+  // Auto-collapse sidebar if clicked outside
+  document.addEventListener('click', function (e) {
+    const isSmallScreen = window.innerWidth <= 991.98;
+    if (
+      isSmallScreen &&
+      !sidebar.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      sidebar.classList.add('collapsed');
+    }
+  });
+
+  // Search filter
+  searchInput.addEventListener("input", function () {
+    const query = searchInput.value.toLowerCase();
+    const notes = document.querySelectorAll("#noteContainer .card");
+
+    notes.forEach(note => {
+      const text = note.textContent.toLowerCase();
+      if (text.includes(query)) {
+        note.parentElement.style.display = "";
+      } else {
+        note.parentElement.style.display = "none";
+      }
+    });
+  });
+
+  // Expand note
+  function expandNote(element) {
+    if (document.querySelector(".note-expanded")) return;
+
+    const title = element.querySelector(".card-title")?.innerText || '';
+    const paragraphs = element.querySelectorAll(".card-text");
+
+    const backdrop = document.createElement("div");
+    backdrop.className = "backdrop";
+    backdrop.onclick = closeExpanded;
+
+    const expanded = document.createElement("div");
+    expanded.className = "note-expanded";
+
+    const titleElem = document.createElement("h5");
+    titleElem.className = "card-title";
+    titleElem.innerText = title;
+    expanded.appendChild(titleElem);
+
+    paragraphs.forEach(p => {
+      const para = document.createElement("p");
+      para.className = "card-text";
+      para.innerText = p.innerText;
+      expanded.appendChild(para);
+    });
+
+    const closeBtn = document.createElement("button");
+    closeBtn.textContent = "×";
+    closeBtn.className = "btn btn-sm btn-danger position-absolute top-0 end-0 m-2";
+    closeBtn.onclick = closeExpanded;
+    expanded.appendChild(closeBtn);
+
+    document.body.appendChild(backdrop);
+    document.body.appendChild(expanded);
+  }
+
+  function closeExpanded() {
+    const expanded = document.querySelector(".note-expanded");
+    const backdrop = document.querySelector(".backdrop");
+    if (expanded) expanded.remove();
+    if (backdrop) backdrop.remove();
+  }
+</script>
+
+
+
+</body>
+</html>
