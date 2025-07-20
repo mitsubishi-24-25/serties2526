@@ -154,39 +154,39 @@
 <body>
 
   <!-- Header/Navbar -->
- <nav class="navbar navbar-light bg-primary shadow-sm fixed-top" data-bs-theme="dark">
-  <div class="container-fluid d-flex justify-content-between align-items-center">
+<nav class="navbar navbar-light bg-primary shadow-sm fixed-top" data-bs-theme="dark">
+  <div class="container-fluid">
     
-    <!-- Left side: burger + title -->
-    <div class="d-flex align-items-center">
-      <button class="btn btn-outline-secondary me-2" id="toggleBtn">☰</button>
+    <!-- Container for brand + toggle + search -->
+    <div class="d-flex flex-column flex-lg-row w-100 align-items-start align-items-lg-center justify-content-lg-between">
+      
+      <!-- Toggle + Brand -->
+      <div class="d-flex align-items-center w-100 w-lg-auto justify-content-start mb-2 mb-lg-0">
+        <button class="btn btn-outline-secondary me-2" id="toggleBtn">☰</button>
+        <!-- Full title (desktop) -->
+        <span class="navbar-brand mb-0 h1 d-none d-lg-inline">School Emergency Response Team A.Y. 2025-2026</span>
+        <!-- Short title (mobile) -->
+        <span class="navbar-brand mb-0 h1 d-inline d-lg-none">SERT A.Y. '25-'26</span>
+      </div>
 
-      <!-- Full title for larger screens -->
-<span class="navbar-brand mb-0 h1 d-none d-lg-inline">School Emergency Response Team (SERT) A.Y. 2025-2026</span>
-
-<!-- Short title for small screens -->
-<span class="navbar-brand mb-0 h1 d-inline d-lg-none">SERT A.Y. '25-'26</span>
+      <!-- Search Bar -->
+      <form id="searchForm" class="d-flex w-100 w-lg-auto justify-content-center justify-content-lg-end" role="search">
+        <input
+          id="searchInput"
+          class="form-control me-2 bg-white text-dark w-75 w-lg-auto"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+      </form>
 
     </div>
 
-    <!-- Right side: Search form -->
-    <form id="searchForm" class="d-flex ms-auto" role="search">
-      <input
-        id="searchInput"
-        class="form-control me-2 bg-white text-dark"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-      />
-    </form>
-
   </div>
 </nav>
 
 
 
-  </div>
-</nav>
 
 
 
