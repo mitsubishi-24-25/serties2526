@@ -68,20 +68,22 @@
 
 
     .card-preview {
-        max-height: 5.5em; /* shows about 3-4 lines */
-        overflow: hidden;
-        position: relative;
-    }
+  max-height: 5.5em;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 0.75rem; /* Add space before h6 footer */
+}
 
-    .card-preview::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 2em;
-        width: 100%;
-        background: linear-gradient(to bottom, transparent, rgba(13, 110, 253, 1)); /* matches bootstrap primary */
-    }
+.card-preview::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2em;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(13, 110, 253, 1)); /* Match Bootstrap primary */
+}
+
 
 
     .note-expanded {
@@ -105,6 +107,14 @@
 
 
 
+.card h6.card-title {
+  font-size: 0.9rem;
+  font-weight: 400;
+  opacity: 0.9;
+  margin: 0;
+  padding-top: 0.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.25); /* Soft divider */
+}
 
 
 .note-expanded h5.card-title {
@@ -115,6 +125,18 @@
   border-bottom: 1px solid #dee2e6;
   padding-bottom: 0.5rem;
 }
+
+.note-expanded h5.card-title,
+.note-expanded h6.card-subtitle {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #dee2e6;
+  margin-bottom: 0.5rem;
+}
+
 
 .note-expanded p.card-text {
   font-size: 1.1rem;
@@ -254,6 +276,30 @@
   overflow: visible !important;
 }
 
+.note-expanded h5.card-title,
+.note-expanded h6.card-subtitle {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.note-expanded .card-preview .row {
+  margin-bottom: 0.5rem;
+}
+
+.note-expanded .col-6 {
+  padding: 0.25rem 0;
+}
+
+.card-footer {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+}
+
+
 
 
 
@@ -318,101 +364,24 @@
 
   <!-- Main content -->
   <div class="main container" id="mainContent">
-    <div class="row" id="noteContainer">
-      <!-- Sample cards -->
-        <div class="row" id="noteContainer">
-  <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
-    <div class="card text-bg-primary p-3" onclick="expandNote(this)">
-      <h5 class="card-title">2nd Quarter Nationwide Simultaneously Earthquake Drill (NSED)</h5>
-      <div class="card-preview">
-  <div class="row">
-    <div class="col-6">Name 1</div>
-    <div class="col-6">Name 2</div>
-  </div>
-  <div class="row">
-    <div class="col-12">Single full row info</div>
-  </div>
-  <div class="row">
-    <div class="col-4">Name 3</div>
-    <div class="col-4">Name 4</div>
-    <div class="col-4">Name 5</div>
-  </div>
-  <div class="row">
-    <div class="col-6">Name 1</div>
-    <div class="col-6">Name 2</div>
-  </div>
-  <div class="row">
-    <div class="col-12">Single full row info</div>
-  </div>
-  <div class="row">
-    <div class="col-4">Name 3</div>
-    <div class="col-4">Name 4</div>
-    <div class="col-4">Name 5</div>
-  </div>
-  <div class="row">
-    <div class="col-6">Name 1</div>
-    <div class="col-6">Name 2</div>
-  </div>
-  <div class="row">
-    <div class="col-12">Single full row info</div>
-  </div>
-  <div class="row">
-    <div class="col-4">Name 3</div>
-    <div class="col-4">Name 4</div>
-    <div class="col-4">Name 5</div>
-  </div>
-  <div class="row">
-    <div class="col-6">Name 1</div>
-    <div class="col-6">Name 2</div>
-  </div>
-  <div class="row">
-    <div class="col-12">Single full row info</div>
-  </div>
-  <div class="row">
-    <div class="col-4">Name 3</div>
-    <div class="col-4">Name 4</div>
-    <div class="col-4">Name 5</div>
-  </div>
-  <div class="row">
-    <div class="col-6">Name 1</div>
-    <div class="col-6">Name 2</div>
-  </div>
-  <div class="row">
-    <div class="col-12">Single full row info</div>
-  </div>
-  <div class="row">
-    <div class="col-4">Name 3</div>
-    <div class="col-4">Name 4</div>
-    <div class="col-4">Name 5</div>
-  </div>
-  <div class="row">
-    <div class="col-6">Name 1</div>
-    <div class="col-6">Name 2</div>
-  </div>
-  <div class="row">
-    <div class="col-12">Single full row info</div>
-  </div>
-  <div class="row">
-    <div class="col-4">Name 3</div>
-    <div class="col-4">Name 4</div>
-    <div class="col-4">Name 5</div>
-  </div>
-  <div class="row">
-    <div class="col-6">Name 1</div>
-    <div class="col-6">Name 2</div>
-  </div>
-  <div class="row">
-    <div class="col-12">Single full row info</div>
-  </div>
-  <div class="row">
-    <div class="col-4">Name 3</div>
-    <div class="col-4">Name 4</div>
-    <div class="col-4">Name 5</div>
-  </div>
-</div>
+  <div class="row" id="noteContainer">
+    <!-- Sample Card -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+      <div class="card text-bg-primary p-3" onclick="expandNote(this)">
+        <h5 class="card-title">2nd Quarter Nationwide Simultaneously Earthquake Drill (NSED)</h5>
 
+        <div class="card-preview">
+          <div class="row">
+            <div class="col-6">Name 1</div>
+            <div class="col-6">Name 2</div>
+          </div>
+        </div>
 
-    </div>
+        <div class="card-footer text-white-50 small pt-2">
+          <h6 class="card-title mb-0">2nd Quarter Nationwide Simultaneously Earthquake Drill (NSED)</h6>
+        </div>
+      </div>
+    
   </div>
 
   <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
@@ -440,8 +409,6 @@
   // ✅ Toggle sidebar + close expanded card on mobile
   toggleBtn.addEventListener('click', () => {
     sidebar.classList.toggle('collapsed');
-
-    // ✅ Automatically close expanded card if in mobile view
     if (window.innerWidth < 992) {
       closeExpanded();
     }
@@ -481,11 +448,12 @@
     });
   });
 
-  // ✅ Expand note (preserve column layout inside .card-preview)
+  // ✅ Expand note with h5 and h6
   function expandNote(element) {
     if (document.querySelector(".note-expanded")) return;
 
-    const title = element.querySelector(".card-title")?.innerText || '';
+    const title = element.querySelector("h5.card-title")?.innerText || '';
+    const subtitle = element.querySelector("h6.card-title")?.innerText || '';
     const previewContent = element.querySelector(".card-preview");
 
     const backdrop = document.createElement("div");
@@ -500,11 +468,15 @@
     titleElem.innerText = title;
     expanded.appendChild(titleElem);
 
-    // ✅ Clone preview content with full layout
     const previewClone = document.createElement("div");
     previewClone.className = "card-preview container-fluid";
     previewClone.innerHTML = previewContent.innerHTML;
     expanded.appendChild(previewClone);
+
+    const subtitleElem = document.createElement("h6");
+    subtitleElem.className = "card-subtitle mb-3 text-muted";
+    subtitleElem.innerText = subtitle;
+    expanded.appendChild(subtitleElem);
 
     const closeBtn = document.createElement("button");
     closeBtn.textContent = "×";
@@ -521,7 +493,6 @@
     document.querySelector(".backdrop")?.remove();
   }
 
-  // ✅ Adjust sidebar padding when navbar overlaps
   function adjustSidebarPadding() {
     const navbar = document.querySelector('.navbar');
     const sidebar = document.getElementById('sidebar');
@@ -536,6 +507,7 @@
   window.addEventListener('resize', adjustSidebarPadding);
   window.addEventListener('DOMContentLoaded', adjustSidebarPadding);
 </script>
+
 
 
 
