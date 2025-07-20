@@ -222,6 +222,20 @@
   z-index: 1040;
 }
 
+.two-columns {
+  column-count: 2;
+  column-gap: 1rem;
+}
+
+/* Remove gradient from expanded note view */
+.note-expanded .card-preview::after {
+  display: none !important;
+}
+
+.note-expanded .card-preview {
+  position: static !important;
+  overflow: visible !important;
+}
 
 
 
@@ -293,10 +307,21 @@
     <div class="card text-bg-primary p-3" onclick="expandNote(this)">
       <h5 class="card-title">2nd Quarter Nationwide Simultaneously Earthquake Drill (NSED)</h5>
       <div class="card-preview">
-        <p class="card-text">This are the names</p>
-        <p class="card-text">Jericho</p>
-        <p class="card-text">Clarence</p>
-      </div>
+  <div class="row">
+    <div class="col-6">Name 1</div>
+    <div class="col-6">Name 2</div>
+  </div>
+  <div class="row">
+    <div class="col-12">Single full row info</div>
+  </div>
+  <div class="row">
+    <div class="col-4">Name 3</div>
+    <div class="col-4">Name 4</div>
+    <div class="col-4">Name 5</div>
+  </div>
+</div>
+
+
     </div>
   </div>
 
@@ -328,7 +353,7 @@
 
     // ✅ Automatically close expanded card if in mobile view
     if (window.innerWidth < 992) {
-      closeExpanded();  // ← this ensures expanded cards auto-close when sidebar is opened
+      closeExpanded();
     }
   });
 
@@ -362,20 +387,16 @@
 
     notes.forEach(note => {
       const text = note.textContent.toLowerCase();
-      if (text.includes(query)) {
-        note.parentElement.style.display = "";
-      } else {
-        note.parentElement.style.display = "none";
-      }
+      note.parentElement.style.display = text.includes(query) ? "" : "none";
     });
   });
 
-  // Expand note
+  // ✅ Expand note (preserve column layout inside .card-preview)
   function expandNote(element) {
     if (document.querySelector(".note-expanded")) return;
 
     const title = element.querySelector(".card-title")?.innerText || '';
-    const paragraphs = element.querySelectorAll(".card-text");
+    const previewContent = element.querySelector(".card-preview");
 
     const backdrop = document.createElement("div");
     backdrop.className = "backdrop";
@@ -389,12 +410,11 @@
     titleElem.innerText = title;
     expanded.appendChild(titleElem);
 
-    paragraphs.forEach(p => {
-      const para = document.createElement("p");
-      para.className = "card-text";
-      para.innerText = p.innerText;
-      expanded.appendChild(para);
-    });
+    // ✅ Clone preview content with full layout
+    const previewClone = document.createElement("div");
+    previewClone.className = "card-preview container-fluid";
+    previewClone.innerHTML = previewContent.innerHTML;
+    expanded.appendChild(previewClone);
 
     const closeBtn = document.createElement("button");
     closeBtn.textContent = "×";
@@ -407,12 +427,11 @@
   }
 
   function closeExpanded() {
-    const expanded = document.querySelector(".note-expanded");
-    const backdrop = document.querySelector(".backdrop");
-    if (expanded) expanded.remove();
-    if (backdrop) backdrop.remove();
+    document.querySelector(".note-expanded")?.remove();
+    document.querySelector(".backdrop")?.remove();
   }
 
+  // ✅ Adjust sidebar padding when navbar overlaps
   function adjustSidebarPadding() {
     const navbar = document.querySelector('.navbar');
     const sidebar = document.getElementById('sidebar');
@@ -427,6 +446,7 @@
   window.addEventListener('resize', adjustSidebarPadding);
   window.addEventListener('DOMContentLoaded', adjustSidebarPadding);
 </script>
+
 
 
 
