@@ -199,12 +199,24 @@
   animation: fadeInScale 0.3s ease;
 }
 
-@media (min-width: 62rem) { /* 992px = 62rem */
+@media (max-width: 576px) {
   .note-expanded {
-    width: 80%;
-    max-width: 32rem; /* still 448px */
+    top: 60% !important; /* shift it a bit lower */
+    transform: translate(-50%, -60%) !important; /* match top % */
+  }
+
+  .note-expanded .row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .note-expanded .col-6 {
+    width: 100% !important;
   }
 }
+
+
+
 
 
 .note-expanded h5.card-title {
@@ -240,17 +252,6 @@
 .note-expanded .card-preview {
   position: static !important;
   overflow: visible !important;
-}
-
-@media (max-width: 576px) {
-  .note-expanded {
-    top: 9.5rem; /* or use a higher value if your navbar is taller */
-    transform: translateX(-50%); /* Remove vertical centering */
-    width: 95%;
-    max-height: 80vh;
-    min-height: auto;
-    padding: 1.5rem 1rem;
-  }
 }
 
 
