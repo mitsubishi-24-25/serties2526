@@ -86,21 +86,26 @@
 
     .note-expanded {
   position: fixed;
-  top: 50%;
+  top: 5%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   background-color: #ffffff;
   color: #212529;
   padding: 2rem 1.5rem;
-  max-width: 600px;
   width: 90%;
-  max-height: 80vh;
+  max-width: 28rem;
+  max-height: 90vh;
+  min-height: 60vh;
   overflow-y: auto;
   border-radius: 1rem;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.75rem 1.875rem rgba(0, 0, 0, 0.3);
   z-index: 1070;
   animation: fadeInScale 0.3s ease;
 }
+
+
+
+
 
 .note-expanded h5.card-title {
   font-size: 1.75rem;
@@ -236,6 +241,18 @@
   position: static !important;
   overflow: visible !important;
 }
+
+@media (max-width: 576px) {
+  .note-expanded {
+    top: 9.5rem; /* or use a higher value if your navbar is taller */
+    transform: translateX(-50%); /* Remove vertical centering */
+    width: 95%;
+    max-height: 80vh;
+    min-height: auto;
+    padding: 1.5rem 1rem;
+  }
+}
+
 
 
 
