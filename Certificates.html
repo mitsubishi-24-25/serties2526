@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mini Keep Notes</title>
+  <title>List of Certificates</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link rel="icon" href="Logo Making.png" sizes="48x48" type="image/png">
   <style>
 
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -126,6 +128,7 @@
   opacity: 0.9;
   margin: 0;
   padding: 0.25rem;
+  text-align: center;
 
 }
 
@@ -245,9 +248,11 @@
   .note-expanded {
     top: 50% !important; /* shift it a bit lower */
     transform: translate(-50%, -50%) !important; /* match top % */
-  max-height: none !important; /* or 100vh if you want full height */
+  max-height: 60vh !important; /* or 100vh if you want full height */
   height: auto !important;     /* ensures it grows with content */
 }
+
+
 
 
   .note-expanded .row {
@@ -255,6 +260,14 @@
     align-items: flex-start;
     margin-left: 0 !important;
   margin-right: 0 !important;
+  }
+
+}
+
+@media (min-width: 577px) {
+  .note-expanded {
+    max-height: 80vh; /* or adjust as needed */
+    overflow-y: auto;
   }
 
 }
@@ -285,6 +298,7 @@
 
 .note-expanded .col-6 {
   padding: 0.5rem 0.5rem;
+  
 }
 
 .card-footer {
@@ -343,7 +357,7 @@
           id="searchInput"
           class="form-control me-2 bg-white text-dark w-75 w-lg-auto"
           type="search"
-          placeholder="Search"
+          placeholder="Search Name or Event"
           aria-label="Search"
         />
       </form>
@@ -378,49 +392,11 @@
   <!-- Main content -->
   <div class="main container" id="mainContent">
   <div class="row" id="noteContainer">
-    <!-- Sample Card -->
-     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
-
-    <div class="card text-bg-primary p-3 note" data-note>
-  <h5 class="card-title">2nd Quarter Nationwide Simultaneously Earthquake Drill (NSED)</h5>
-
-  <!-- Preview -->
-  <!-- <div class="card-preview">
-    <div class="row">
-      <div class="col-6">Name</div>
-      <div class="col-6">Position</div>
-    </div>
-  </div> -->
-
-  <div class="card-footer text-white-100 small pt-2">
-    <h6 class="card-title mb-0">Footer subtitle here</h6>
-  </div>
-
-  <!-- Expanded View -->
-  <div class="note-expanded d-none">
-    <div class="note-expanded-inner">
-      <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
-      <h5 class="card-title expanded-title">2nd Quarter NSED</h5>
-
-      <div class="card-preview">
-        <div class="row">
-          <div class="col-6">Name</div>
-          <div class="col-6">Position</div>
-          <!-- Add more here -->
-        </div>
-      </div>
-
-      <h6 class="card-subtitle mb-3 text-muted">Subtitle</h6>
-    </div>
-  </div>
-</div>
-
-    </div>
 
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
 
     <div class="card text-bg-primary p-3 note" data-note>
-  <h5 class="card-title">1st Quarter Nationwide Simultaneously Earthquake Drill (NSED)</h5>
+  <h5 class="card-title">TWG | Back-To-School Orientation for the S.Y. 2025-2026</h5>
 
   <!-- Preview -->
   <!-- <div class="card-preview">
@@ -431,41 +407,48 @@
   </div> -->
 
   <div class="card-footer text-white-100 small pt-2">
-    <h6 class="card-title mb-0">Footer subtitle here</h6>
+    <h6 class="card-title mb-0">June 18, 2025</h6>
   </div>
 
   <!-- Expanded View -->
   <div class="note-expanded d-none">
     <div class="note-expanded-inner">
       <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
-      <h5 class="card-title expanded-title">1st Quarter Nationwide Simultaneously Earthquake Drill (NSED)</h5>
+      <h5 class="card-title expanded-title">TWG | Back-To-School Orientation for the S.Y. 2025-2026</h5>
 
       <div class="card-preview">
         <div class="row gx-2">
-          <div class="col-6">tae</div>
-          <div class="col-6">Pos                    jbhbhition</div>
-          <div class="col-3">Clarence</div>
-          <div class="col-3">Position</div>
-          <div class="col-3">Clarence</div>
-          <div class="col-6">Position</div>
-          <div class="col-6">Clarence</div>
-          <div class="col-6">Position</div>
-          <div class="col-6">Clarence</div>
-          <div class="col-6">Position</div>
-          <div class="col-6">Clarence</div>
-          <div class="col-6">Position</div>
-          <div class="col-6">Clarence</div>
-          <div class="col-6">Position</div>
-          <div class="col-6">Clarence</div>
-          <div class="col-6">Position</div>
-          <div class="col-6">Clarence</div>
-          <div class="col-6">Position</div>
-          <div class="col-6">Clarence</div>
-          <div class="col-6">Position</div>
-          <div class="col-6">Clarence</div>
-          <div class="col-6">Position</div>
-          <div class="col-6">Clarence</div>
-          <div class="col-6">Position</div>
+          <div class="col-9">Uan Carl V. Vardeleon</div>
+          <div class="col-3">Gas 12-A</div>
+          <div class="col-9">Clarence Jefferson T. Bulatao</div>
+          <div class="col-3">ICT 12 -A</div>
+          <div class="col-9">Aaron John Christopher Javier</div>
+          <div class="col-3">ICT 12-A</div>
+          <div class="col-9">Jericho Santillan</div>
+          <div class="col-3">ICT 12-A</div>
+          <div class="col-9">Justine Ariz F. Santos</div>
+          <div class="col-3">ICT 12-A</div>
+          <div class="col-9">Mark Laurence E. Mempin</div>
+          <div class="col-3">ICT 12-A</div>
+          <div class="col-9">Rich William Bobis</div>
+          <div class="col-3">ICT 12-A</div>
+          <div class="col-9">Rocky N. Dela Rosa</div>
+          <div class="col-3">ICT 12-A</div>
+          <div class="col-9">Arvince  D. Dela Cruz</div>
+          <div class="col-3">ICT 12-A</div>
+          <div class="col-9">Ruel John DC. Dela Cruz</div>
+          <div class="col-3">ICT 12-A</div>
+          <div class="col-9">TJ Miel N. Bernabe</div>
+          <div class="col-3">STEM 12-A</div>
+          <div class="col-9">Maria Shekainah Grace M. Cruz</div>
+          <div class="col-3">STEM 12-A</div>
+          <div class="col-9">Whency T. Dela Rosa</div>
+          <div class="col-3">STEM 12-A</div>
+          <div class="col-9">Jonash Mark T. Ibaya</div>
+          <div class="col-3">STEM 12-A</div>
+          <div class="col-9">Paulyn DL. Espiritu</div>
+          <div class="col-3">STEM 12-A</div>
+
           <!-- Add more here -->
 
 
@@ -610,7 +593,7 @@ navLinks.forEach(link => {
   }
 </style>
 
-<!-- <script>
+<script>
   document.addEventListener("DOMContentLoaded", function () {
     // Block developer tools, view source, copy, cut
     document.addEventListener("keydown", function (e) {
@@ -660,7 +643,7 @@ navLinks.forEach(link => {
       e.preventDefault();
     });
   });
-</script> -->
+</script>
 
 
 
