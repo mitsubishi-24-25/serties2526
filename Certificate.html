@@ -58,13 +58,14 @@
       transition: 0.3s;
     }
 
-        .card-title {
-    white-space: nowrap;       /* Keep title in a single line */
-    overflow: hidden;          /* Hide any overflow */
-    text-overflow: ellipsis;   /* Show "..." at the end */
-    max-width: 100%;           /* Prevent overflow on narrow cards */
-    display: block;
-    }
+    .card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  max-width: 100%;
+}
+
 
 
     .card-preview {
@@ -84,46 +85,30 @@
   background: linear-gradient(to bottom, transparent, rgba(13, 110, 253, 1)); /* Match Bootstrap primary */
 }
 
-
-
-    .note-expanded {
-  position: fixed;
-  top: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #ffffff;
-  color: #212529;
-  padding: 2rem 1.5rem;
-  width: 90%;
-  max-width: 28rem;
-  max-height: 90vh;
-  min-height: 60vh;
-  overflow-y: auto;
-  border-radius: 1rem;
-  box-shadow: 0 0.75rem 1.875rem rgba(0, 0, 0, 0.3);
-  z-index: 1070;
-  animation: fadeInScale 0.3s ease;
+/* ✅ Fix the red close button overlap */
+.note-expanded .btn-close, 
+.note-expanded .btn-danger {
+  z-index: 20;
+  border: none;
+  box-shadow: none;
 }
-
-
-
 .card h6.card-title {
   font-size: 0.9rem;
   font-weight: 400;
   opacity: 0.9;
   margin: 0;
-  padding-top: 0.25rem;
+  padding: 0.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.25); /* Soft divider */
 }
 
 
 .note-expanded h5.card-title {
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;/* 
+  margin-bottom: 1rem; */
   color: #0d6efd; /* Bootstrap Primary */
-  border-bottom: 1px solid #dee2e6;
-  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #dee2e6;/* 
+  padding-bottom: 0.5rem; */
 }
 
 .note-expanded h5.card-title,
@@ -237,15 +222,6 @@
   }
 }
 
-
-
-
-
-.note-expanded h5.card-title {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
 .note-expanded p.card-text {
   font-size: 1rem;
   margin-bottom: 0.75rem;
@@ -282,8 +258,9 @@
   top: 0;
   background: white;
   z-index: 1;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  /* padding-top: 0.5rem;
+  padding-bottom: 0.5rem; */
+  padding: 0.5rem;
 }
 
 .note-expanded .card-preview .row {
@@ -299,6 +276,17 @@
   background: transparent;
 }
 
+.expanded-title {
+  white-space: normal;
+  overflow: visible;
+  text-align: center;
+  text-overflow: unset;
+}
+
+.note-expanded-inner {
+  margin: 0 auto;
+  max-width: 90%;
+}
 
 
 
@@ -464,7 +452,7 @@
     expanded.className = "note-expanded";
 
     const titleElem = document.createElement("h5");
-    titleElem.className = "card-title";
+    titleElem.className = "card-title expanded-title";
     titleElem.innerText = title;
     expanded.appendChild(titleElem);
 
@@ -506,7 +494,99 @@
 
   window.addEventListener('resize', adjustSidebarPadding);
   window.addEventListener('DOMContentLoaded', adjustSidebarPadding);
+
+  const expandedInner = document.createElement("div");
+expandedInner.className = "note-expanded-inner";
+expanded.appendChild(expandedInner);
+
+expandedInner.appendChild(titleElem);
+expandedInner.appendChild(previewClone);
+expandedInner.appendChild(subtitleElem);
+
 </script>
+
+<style>
+  /* Disable text selection and dragging */
+  * {
+    -webkit-user-select: none;  /* Safari */
+    -moz-user-select: none;     /* Firefox */
+    -ms-user-select: none;      /* IE10+/Edge */
+    user-select: none;          /* Standard */
+
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+</style>
+
+<style>
+  /* Disable text selection and dragging */
+  * {
+    -webkit-user-select: none;  /* Safari */
+    -moz-user-select: none;     /* Firefox */
+    -ms-user-select: none;      /* IE10+/Edge */
+    user-select: none;          /* Standard */
+
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Block developer tools, view source, copy, cut
+    document.addEventListener("keydown", function (e) {
+      const key = e.key.toLowerCase();
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && (key === "i" || key === "j")) ||
+        (e.ctrlKey && ["u", "c", "x"].includes(key)) // 'x' added here
+      ) {
+        e.preventDefault();
+        alert("Action disabled by SHS Coordinator.");
+      }
+    });
+
+    // Disable right-click
+    document.addEventListener("contextmenu", function (e) {
+      e.preventDefault();
+      alert("Action disabled by SHS Coordinator.");
+    });
+
+    // Disable copy
+    document.addEventListener("copy", function (e) {
+      e.preventDefault();
+      alert("Action disabled by SHS Coordinator.");
+    });
+
+    // Disable cut
+    document.addEventListener("cut", function (e) {
+      e.preventDefault();
+      alert("Action disabled by SHS Coordinator.");
+    });
+
+    // Disable drag
+    document.addEventListener("dragstart", function (e) {
+      e.preventDefault();
+      alert("Action disabled by SHS Coordinator.");
+    });
+
+    // Prevent long tap and gestures (mobile)
+    document.addEventListener("touchstart", function (e) {
+      if (e.touches.length > 1) {
+        e.preventDefault();
+        alert("Action disabled by SHS Coordinator.");
+      }
+    }, { passive: false });
+
+    document.addEventListener("gesturestart", function (e) {
+      e.preventDefault();
+      alert("Action disabled by SHS Coordinator.");
+    });
+  });
+</script>
+
+
+
 
 
 
