@@ -138,16 +138,20 @@
   color: #212529;
   padding: 2rem 1.5rem;
   width: 90%;
-  max-width: 28rem; /* ≈ 448px */
-  max-height: 80vh;
+  max-width: 28rem;
+  height: auto; /* Let it grow */
+  max-height: 90vh; /* Optional cap */
   overflow-y: auto;
   overflow-x: hidden;
   border-radius: 1rem;
-  box-shadow: 0 0.75rem 1.875rem rgba(0, 0, 0, 0.3); /* ≈ 12px 30px */
+  box-shadow: 0 0.75rem 1.875rem rgba(0, 0, 0, 0.3);
   z-index: 1070;
   animation: fadeInScale 0.3s ease;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
 }
+
 
 
 .note-expanded h5.card-title {
@@ -239,9 +243,12 @@
 
 @media (max-width: 576px) {
   .note-expanded {
-    top: 60% !important; /* shift it a bit lower */
-    transform: translate(-50%, -60%) !important; /* match top % */
-  }
+    top: 50% !important; /* shift it a bit lower */
+    transform: translate(-50%, -50%) !important; /* match top % */
+  max-height: none !important; /* or 100vh if you want full height */
+  height: auto !important;     /* ensures it grows with content */
+}
+
 
   .note-expanded .row {
     flex-wrap: wrap;
@@ -295,9 +302,18 @@
 .note-expanded-inner {
   margin: 0 auto;
   max-width: 90%;
-  max-height: 100%;
+  max-height: none;
+  height: auto;
   overflow-y: auto;
 }
+
+.note-expanded .row,
+.note-expanded .col-6,
+.note-expanded .card-preview {
+  overflow: visible !important;
+  max-height: none !important;
+}
+
 
 
 
@@ -427,10 +443,10 @@
       <div class="card-preview">
         <div class="row gx-2">
           <div class="col-6">tae</div>
-          <div class="col-6">Position</div>
-          <div class="col-6">Clarence</div>
-          <div class="col-6">Position</div>
-          <div class="col-6">Clarence</div>
+          <div class="col-6">Pos                    jbhbhition</div>
+          <div class="col-3">Clarence</div>
+          <div class="col-3">Position</div>
+          <div class="col-3">Clarence</div>
           <div class="col-6">Position</div>
           <div class="col-6">Clarence</div>
           <div class="col-6">Position</div>
@@ -572,6 +588,10 @@ navLinks.forEach(link => {
     alert("This page is currently unavailable. Thank you!");
   });
 });
+
+
+
+
 
 
 
