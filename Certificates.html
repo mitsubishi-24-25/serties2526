@@ -93,6 +93,7 @@
   text-overflow: ellipsis;
   display: block;
   max-width: 100%;
+  text-align: center;
 }
 
 
@@ -329,11 +330,38 @@
 }
 
 
+.page-background {
+  position: fixed;
+  top: 1.5rem;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* stay behind all content */
+  background-image: url('low quality.png'); /* replace with your image */
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.08; /* optional: light transparent look */
+  pointer-events: none; /* click-through */
+  background-size: 40% auto
+}
+
+@media (max-width: 576px) {
+  .page-background {
+    background-size: 100%;
+  }
+}
+
+
+
 
 
   </style>
 </head>
 <body>
+
+  <div class="page-background"><img src="low" alt="">
+  </div>
+
 
   <!-- Header/Navbar -->
 <nav class="navbar navbar-light bg-primary shadow-sm fixed-top" data-bs-theme="dark">
@@ -345,9 +373,13 @@
       <!-- Toggle + Brand -->
       <div class="d-flex align-items-center w-100 w-lg-auto justify-content-start mb-2 mb-lg-0">
         <button class="btn btn-outline-secondary me-2" id="toggleBtn">☰</button>
+
+                 <img src="low quality.png" alt="Logo" width="40" style="margin-right: 0.2rem;">
+
         <!-- Full title (desktop) -->
         <span class="navbar-brand mb-0 h1 d-none d-lg-inline">School Emergency Response Team A.Y. 2025-2026</span>
-        <!-- Short title (mobile) -->
+        
+         <!-- Short title (mobile) -->
         <span class="navbar-brand mb-0 h1 d-inline d-lg-none">SERT A.Y. '25-'26</span>
       </div>
 
@@ -503,6 +535,21 @@
     }
   });
 
+  searchInput.addEventListener("focus", function () {
+  closeExpanded(); // ✅ Hide expanded view when user clicks the search bar
+});
+
+searchInput.addEventListener("input", function () {
+  const query = searchInput.value.toLowerCase();
+  const notes = document.querySelectorAll("#noteContainer .card");
+
+  notes.forEach(note => {
+    const text = note.textContent.toLowerCase();
+    note.parentElement.style.display = text.includes(query) ? "" : "none";
+  });
+});
+
+
   // Search filter
   searchInput.addEventListener("input", function () {
     const query = searchInput.value.toLowerCase();
@@ -544,9 +591,15 @@
 
 
   function closeExpanded() {
-    document.querySelector(".note-expanded")?.remove();
-    document.querySelector(".backdrop")?.remove();
+  const expandedNote = document.querySelector(".note-expanded");
+  const expandedCard = document.querySelector(".card.expanded");
+  if (expandedNote && expandedCard) {
+    expandedNote.classList.add("d-none");
+    expandedCard.classList.remove("expanded");
   }
+  document.querySelector(".backdrop")?.remove();
+}
+
 
   function adjustSidebarPadding() {
     const navbar = document.querySelector('.navbar');
