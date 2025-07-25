@@ -235,6 +235,15 @@
   transform: none;
 }
 
+.card-preview .row{
+  border-bottom: 1px solid #dee2e6;
+}
+
+.card-preview .col-4{
+  border-left: 1px solid #dee2e6;
+  text-align: right;
+}
+
 
 @media (max-width: 991.98px) {
   #sidebar {
@@ -456,42 +465,15 @@
       <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
       <h5 class="card-title expanded-title">TWG | Back-To-School Orientation for the S.Y. 2025-2026</h5>
 
-      <div class="card-preview">
-        <div class="row gx-2">
-          <div class="col-7">Uan Carl V. Vardeleon</div>
-          <div class="col-5">GAS 12-A</div>
-          <div class="col-7">Clarence Jefferson T. Bulatao</div>
-          <div class="col-5">ICT 12 -A</div>
-          <div class="col-7">Aaron John Christopher Javier</div>
-          <div class="col-5">ICT 12-A</div>
-          <div class="col-7">Jericho Santillan</div>
-          <div class="col-5">ICT 12-A</div>
-          <div class="col-7">Justine Ariz F. Santos</div>
-          <div class="col-5">ICT 12-A</div>
-          <div class="col-7">Mark Laurence E. Mempin</div>
-          <div class="col-5">ICT 12-A</div>
-          <div class="col-7">Rich William Bobis</div>
-          <div class="col-5">ICT 12-A</div>
-          <div class="col-7">Rocky N. Dela Rosa</div>
-          <div class="col-5">ICT 12-A</div>
-          <div class="col-7">Arvince  D. Dela Cruz</div>
-          <div class="col-5">ICT 12-A</div>
-          <div class="col-7">Ruel John DC. Dela Cruz</div>
-          <div class="col-5">ICT 12-A</div>
-          <div class="col-7">TJ Miel N. Bernabe</div>
-          <div class="col-5">STEM 12-A</div>
-          <div class="col-7">Maria Shekainah Grace M. Cruz</div>
-          <div class="col-5">STEM 12-A</div>
-          <div class="col-7">Whency T. Dela Rosa</div>
-          <div class="col-5">STEM 12-A</div>
-          <div class="col-7">Jonash Mark T. Ibaya</div>
-          <div class="col-5">STEM 12-A</div>
-          <div class="col-7">Paulyn DL. Espiritu</div>
-          <div class="col-5">STEM 12-A</div>
-          <div class="col-7">Tsivaz Yhael C. Neri</div>
-          <div class="col-5">STEM 11-B</div>
-          <div class="col-7">Gabriel F. Pascual</div>
-          <div class="col-5">STEM 11-A</div>
+<!-- 
+      
+          <div class="class-preview">
+            <div class="row">
+              <div style="text-align: center;">hotdog</div>
+            </div>
+          </div>
+ -->
+          <div class="card-preview" id="Back-To-School"></div>
 
           <!-- Add more here -->
 
@@ -504,10 +486,6 @@
 </div>
 
     </div>
-
-      <!-- Add more cards here -->
-    </div>
-  </div>
 
   <!-- JS -->
   <script>
@@ -658,57 +636,8 @@ navLinks.forEach(link => {
   }
 </style>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Block developer tools, view source, copy, cut
-    document.addEventListener("keydown", function (e) {
-      const key = e.key.toLowerCase();
-      if (
-        e.key === "F12" ||
-        (e.ctrlKey && e.shiftKey && (key === "i" || key === "j")) ||
-        (e.ctrlKey && ["u", "c", "x"].includes(key)) // 'x' added here
-      ) {
-        e.preventDefault();
-        alert("Action disabled by SHS Coordinator.");
-      }
-    });
-
-    // Disable right-click
-    document.addEventListener("contextmenu", function (e) {
-      e.preventDefault();
-      alert("Action disabled by SHS Coordinator.");
-    });
-
-    // Disable copy
-    document.addEventListener("copy", function (e) {
-      e.preventDefault();
-      alert("Action disabled by SHS Coordinator.");
-    });
-
-    // Disable cut
-    document.addEventListener("cut", function (e) {
-      e.preventDefault();
-      alert("Action disabled by SHS Coordinator.");
-    });
-
-    // Disable drag
-    document.addEventListener("dragstart", function (e) {
-      e.preventDefault();
-      alert("Action disabled by SHS Coordinator.");
-    });
-
-    // Prevent long tap and gestures (mobile)
-    document.addEventListener("touchstart", function (e) {
-      if (e.touches.length > 1) {
-        e.preventDefault();
-      }
-    }, { passive: false });
-
-    document.addEventListener("gesturestart", function (e) {
-      e.preventDefault();
-    });
-  });
-</script>
+<script src="Actions Disabled.js"></script>
+<script src="Load names.js"></script>
 
 
 
