@@ -5,63 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>List of Certificates</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
   <link rel="icon" href="Logo Making.png" sizes="48x48" type="image/png">
-  <style>
 
+  <style>
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
     body {
       overflow-x: hidden;
       background: #f1f3f4;
     }
 
     .navbar {
-        z-index: 1060 !important;
-        font-family: oswald;
+      z-index: 1060 !important;
+      font-family: oswald;
     }
-
 
     .sidebar {
-        height: 100vh;
-        width: 250px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background: #fff;
-        padding-top: 60px;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-        transition: left 0.3s;
-        z-index: 1050; /* stay under backdrop and expanded */
-        font-family: poppins;
+      height: 100vh;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #fff;
+      padding-top: 60px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      transition: left 0.3s;
+      z-index: 1050;
+      font-family: poppins;
     }
-
 
     .sidebar.closed {
       left: -250px;
     }
 
-  .sidebar .nav-link {
-  border-radius: 5px;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-}
+    .sidebar .nav-link {
+      border-radius: 5px;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
 
-/* Hover effect with slight scaling */
-.sidebar .nav-link:hover {
-  background-color: #0d6efd;
-  color: white;
-  transform: translateX(5px);
-}
+    .sidebar .nav-link:hover {
+      background-color: #0d6efd;
+      color: white;
+      transform: translateX(5px);
+    }
 
-/* Active state */
-.sidebar .nav-link.active {
-  background-color: #0d6efd;
-  color: white;
-  font-weight: bold;
-  transform: translateX(5px);
-  pointer-events: none; /* disables clicking */
-}
-
-
+    .sidebar .nav-link.active {
+      background-color: #0d6efd;
+      color: white;
+      font-weight: bold;
+      transform: translateX(5px);
+      pointer-events: none;
+    }
 
     @media (min-width: 992px) {
       .sidebar {
@@ -89,340 +83,315 @@
     }
 
     .card-title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: block;
-  max-width: 100%;
-  text-align: center;
-}
-
-
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+      max-width: 100%;
+      text-align: center;
+    }
 
     .card-preview {
-  max-height: 5.5em;
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 0.75rem; /* Add space before h6 footer */
+      max-height: 5.5em;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 0.75rem;
+    }
 
-}
+    .card-preview::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2em;
+      width: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(13, 110, 253, 1));
+    }
 
-.card-preview::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2em;
-  width: 100%;
-  background: linear-gradient(to bottom, transparent, rgba(13, 110, 253, 1)); /* Match Bootstrap primary */
-}
+    .note-expanded .btn-close,
+    .note-expanded .btn-danger {
+      z-index: 20;
+      border: none;
+      box-shadow: none;
+    }
 
-/* ✅ Fix the red close button overlap */
-.note-expanded .btn-close, 
-.note-expanded .btn-danger {
-  z-index: 20;
-  border: none;
-  box-shadow: none;
-}
-.card h6.card-title {
-  font-size: 0.9rem;
-  font-weight: 400;
-  opacity: 0.9;
-  margin: 0;
-  padding: 0.25rem;
-  text-align: center;
+    .card h6.card-title {
+      font-size: 0.9rem;
+      font-weight: 400;
+      opacity: 0.9;
+      margin: 0;
+      padding: 0.25rem;
+      text-align: center;
+    }
 
-}
+    .note-expanded {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #ffffff;
+      color: #212529;
+      padding: 2rem 1.5rem;
+      width: 90%;
+      max-width: 28rem;
+      max-height: 90vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 0.75rem 1.875rem rgba(0, 0, 0, 0.3);
+      z-index: 1070;
+      animation: fadeInScale 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
 
-.note-expanded {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #ffffff;
-  color: #212529;
-  padding: 2rem 1.5rem;
-  width: 90%;
-  max-width: 28rem;
-  height: auto; /* Let it grow */
-  max-height: 90vh; /* Optional cap */
-  overflow-y: auto;
-  overflow-x: hidden;
-  border-radius: 1rem;
-  box-shadow: 0 0.75rem 1.875rem rgba(0, 0, 0, 0.3);
-  z-index: 1070;
-  animation: fadeInScale 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
+    .note-expanded h5.card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0d6efd;
+      border-bottom: 1px solid #dee2e6;
+      position: sticky;
+    }
 
+    .note-expanded h5.card-title,
+    .note-expanded h6.card-subtitle {
+      top: 0;
+      background: white;
+      z-index: 1;
+      padding: 0.5rem;
+      text-align: center;
+    }
 
+    .note-expanded h6.card-subtitle {
+      color: red !important;
+    }
 
-.note-expanded h5.card-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #0d6efd; /* Bootstrap Primary */
-  border-bottom: 1px solid #dee2e6;
-  position: sticky;
-}
+    .note-expanded p.card-text {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
 
-.note-expanded h5.card-title,
-.note-expanded h6.card-subtitle {
-  top: 0;
-  background: white;
-  z-index: 1;
-  padding: 0.5rem;
-  text-align: center;
-}
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
 
-.note-expanded h6.card-subtitle{
-  color: red !important;
-  
-}
+      to {
+        opacity: 1;
+      }
+    }
 
-.note-expanded p.card-text {
-  font-size: 1rem;
-  margin-bottom: 0.75rem;
-  line-height: 1.5;
-}
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+      }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
 
-@keyframes fadeInScale {
-  from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
-  to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-}
-
-
-  .backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1040;
-}
+    .backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1040;
+    }
 
     #toggleBtn {
-  color: white;
-  border-color: white;
-}
+      color: white;
+      border-color: white;
+    }
 
-#toggleBtn:hover {
-  background-color: white !important;
-  color: #0d6efd !important; /* Bootstrap primary color */
-  border-color: white !important;
-}
+    #toggleBtn:hover {
+      background-color: white !important;
+      color: #0d6efd !important;
+      border-color: white !important;
+    }
 
-::placeholder {
-  color: #000 !important; /* or any visible color like white */
-  opacity: 1; /* ensures full opacity */
-}
+    ::placeholder {
+      color: #000 !important;
+      opacity: 1;
+    }
 
-.card:hover {
-  box-shadow: 0.40rem 0.40rem 0.2rem rgba(0, 0, 0, 0.25);
-  transition: 0.2s ease;
-  transform: scale(1.01);
-}
+    .card:hover {
+      box-shadow: 0.40rem 0.40rem 0.2rem rgba(0, 0, 0, 0.25);
+      transition: 0.2s ease;
+      transform: scale(1.01);
+    }
 
-.card.expanded:hover {
-  box-shadow: none;
-  transform: none;
-}
+    .card.expanded:hover {
+      box-shadow: none;
+      transform: none;
+    }
 
-.card-preview .row{
-  border-bottom: 1px solid #dee2e6;
-}
+    .card-preview .row {
+      border-bottom: 1px solid #dee2e6;
+    }
 
-.card-preview .col-4{
-  border-left: 1px solid #dee2e6;
-  text-align: right;
-}
+    .card-preview .col-4 {
+      border-left: 1px solid #dee2e6;
+      text-align: right;
+    }
 
+    @media (max-width: 991.98px) {
+      #sidebar {
+        position: absolute;
+        z-index: 1050;
+        height: 100vh;
+        transition: transform 0.3s ease;
+      }
 
-@media (max-width: 991.98px) {
-  #sidebar {
-    position: absolute;
-    z-index: 1050;
-    height: 100vh;
-    transition: transform 0.3s ease;
-  }
+      #sidebar.collapsed {
+        transform: translateX(-100%);
+      }
 
-  #sidebar.collapsed {
-    transform: translateX(-100%);
-  }
+      #sidebar:not(.collapsed) {
+        transform: translateX(0);
+      }
+    }
 
-  #sidebar:not(.collapsed) {
-    transform: translateX(0);
-  }
-}
+    @media (max-width: 576px) {
+      .note-expanded {
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        max-height: 60vh !important;
+        height: auto !important;
+      }
 
-@media (max-width: 576px) {
-  .note-expanded {
-    top: 50% !important; /* shift it a bit lower */
-    transform: translate(-50%, -50%) !important; /* match top % */
-  max-height: 60vh !important; /* or 100vh if you want full height */
-  height: auto !important;     /* ensures it grows with content */
-}
+      .note-expanded .row {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+    }
 
+    @media (min-width: 577px) {
+      .note-expanded {
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+    }
 
+    .two-columns {
+      column-count: 2;
+      column-gap: 1rem;
+    }
 
+    .note-expanded .card-preview::after {
+      display: none !important;
+    }
 
-  .note-expanded .row {
-    flex-wrap: wrap;
-    align-items: flex-start;
-    margin-left: 0 !important;
-  margin-right: 0 !important;
-  }
+    .note-expanded .card-preview {
+      position: static !important;
+      overflow: visible !important;
+      overflow-x: hidden;
+    }
 
-}
+    .note-expanded .card-preview .row {
+      margin-bottom: 0.5rem;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      width: 100% !important;
+      box-sizing: border-box;
+    }
 
-@media (min-width: 577px) {
-  .note-expanded {
-    max-height: 80vh; /* or adjust as needed */
-    overflow-y: auto;
-  }
+    .note-expanded .col-6 {
+      padding: 0.5rem 0.5rem;
+    }
 
-}
+    .card-footer {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      background: transparent;
+    }
 
-.two-columns {
-  column-count: 2;
-  column-gap: 1rem;
-}
+    .expanded-title {
+      white-space: normal;
+      overflow: visible;
+      text-align: center;
+      text-overflow: unset;
+    }
 
-/* Remove gradient from expanded note view */
-.note-expanded .card-preview::after {
-  display: none !important;
-}
+    .note-expanded-inner {
+      margin: 0 auto;
+      max-width: 90%;
+      max-height: none;
+      height: auto;
+      overflow-y: auto;
+    }
 
-.note-expanded .card-preview {
-  position: static !important;
-  overflow: visible !important;
-  overflow-x: hidden;
-}
+    .note-expanded .row,
+    .note-expanded .col-6,
+    .note-expanded .card-preview {
+      overflow: visible !important;
+      max-height: none !important;
+    }
 
-.note-expanded .card-preview .row {
-  margin-bottom: 0.5rem;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  width: 100% !important; /* 🔑 Force it not to grow beyond parent */
-  box-sizing: border-box;
-}
+    .page-background {
+      position: fixed;
+      top: 1.5rem;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background-image: url('low quality.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      opacity: 0.08;
+      pointer-events: none;
+      background-size: 40% auto;
+    }
 
-.note-expanded .col-6 {
-  padding: 0.5rem 0.5rem;
-  
-}
-
-.card-footer {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-  background: transparent;
-}
-
-.expanded-title {
-  white-space: normal;
-  overflow: visible;
-  text-align: center;
-  text-overflow: unset;
-}
-
-.note-expanded-inner {
-  margin: 0 auto;
-  max-width: 90%;
-  max-height: none;
-  height: auto;
-  overflow-y: auto;
-}
-
-.note-expanded .row,
-.note-expanded .col-6,
-.note-expanded .card-preview {
-  overflow: visible !important;
-  max-height: none !important;
-}
-
-
-.page-background {
-  position: fixed;
-  top: 1.5rem;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1; /* stay behind all content */
-  background-image: url('low quality.png'); /* replace with your image */
-  background-repeat: no-repeat;
-  background-position: center center;
-  opacity: 0.08; /* optional: light transparent look */
-  pointer-events: none; /* click-through */
-  background-size: 40% auto
-}
-
-@media (max-width: 576px) {
-  .page-background {
-    background-size: 100%;
-  }
-}
-
-
-
-
-
+    @media (max-width: 576px) {
+      .page-background {
+        background-size: 100%;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-  <div class="page-background"><img src="low" alt="">
+  <div class="page-background">
+    <img src="low" alt="">
   </div>
-
 
   <!-- Header/Navbar -->
-<nav class="navbar navbar-light bg-primary shadow-sm fixed-top" data-bs-theme="dark">
-  <div class="container-fluid">
-    
-    <!-- Container for brand + toggle + search -->
-    <div class="d-flex flex-column flex-lg-row w-100 align-items-start align-items-lg-center justify-content-lg-between">
-      
-      <!-- Toggle + Brand -->
-      <div class="d-flex align-items-center w-100 w-lg-auto justify-content-start mb-2 mb-lg-0">
-        <button class="btn btn-outline-secondary me-2" id="toggleBtn">☰</button>
+  <nav class="navbar navbar-light bg-primary shadow-sm fixed-top" data-bs-theme="dark">
+    <div class="container-fluid">
+      <div class="d-flex flex-column flex-lg-row w-100 align-items-start align-items-lg-center justify-content-lg-between">
+        <!-- Toggle + Brand -->
+        <div class="d-flex align-items-center w-100 w-lg-auto justify-content-start mb-2 mb-lg-0">
+          <button class="btn btn-outline-secondary me-2" id="toggleBtn">☰</button>
+          <img src="low quality.png" alt="Logo" width="40" style="margin-right: 0.2rem;">
+          <span class="navbar-brand mb-0 h1 d-none d-lg-inline">School Emergency Response Team A.Y. 2025-2026</span>
+          <span class="navbar-brand mb-0 h1 d-inline d-lg-none">SERT A.Y. '25-'26</span>
+        </div>
 
-                 <img src="low quality.png" alt="Logo" width="40" style="margin-right: 0.2rem;">
-
-        <!-- Full title (desktop) -->
-        <span class="navbar-brand mb-0 h1 d-none d-lg-inline">School Emergency Response Team A.Y. 2025-2026</span>
-        
-         <!-- Short title (mobile) -->
-        <span class="navbar-brand mb-0 h1 d-inline d-lg-none">SERT A.Y. '25-'26</span>
+        <!-- Search Bar -->
+        <form id="searchForm" class="d-flex w-100 w-lg-auto justify-content-center justify-content-lg-end" role="search">
+          <input
+            id="searchInput"
+            class="form-control me-2 bg-white text-dark w-75 w-lg-auto"
+            type="search"
+            placeholder="Search Name or Event"
+            aria-label="Search"
+          />
+        </form>
       </div>
-
-      <!-- Search Bar -->
-      <form id="searchForm" class="d-flex w-100 w-lg-auto justify-content-center justify-content-lg-end" role="search">
-        <input
-          id="searchInput"
-          class="form-control me-2 bg-white text-dark w-75 w-lg-auto"
-          type="search"
-          placeholder="Search Name or Event"
-          aria-label="Search"
-        />
-      </form>
-
     </div>
-
-  </div>
-</nav>
-
-
-
-
-
+  </nav>
 
   <!-- Sidebar -->
-<div class="sidebar bg-light collapsed" id="sidebar">
+  <div class="sidebar bg-light collapsed" id="sidebar">
     <ul class="nav flex-column px-3">
       <li class="nav-item">
         <a class="nav-link" href="">Home</a>
@@ -440,120 +409,158 @@
 
   <!-- Main content -->
   <div class="main container" id="mainContent">
-  <div class="row" id="noteContainer">
+    <div class="row" id="noteContainer">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+        <div class="card text-bg-primary p-3 note" data-note>
+          <h5 class="card-title">TWG | Back-To-School Orientation</h5>
 
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
-
-    <div class="card text-bg-primary p-3 note" data-note>
-  <h5 class="card-title">TWG | Back-To-School Orientation</h5>
-
-  <!-- Preview -->
-  <!-- <div class="card-preview">
-    <div class="row">
-      <div class="col-6">Name</div>
-      <div class="col-6">Position</div>
-    </div>
-  </div> -->
-
-  <div class="card-footer text-white-100 small pt-2">
-    <h6 class="card-title mb-0">June 18, 2025</h6>
-  </div>
-
-  <!-- Expanded View -->
-  <div class="note-expanded d-none">
-    <div class="note-expanded-inner">
-      <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
-      <h5 class="card-title expanded-title">TWG | Back-To-School Orientation for the S.Y. 2025-2026</h5>
-
-<!-- 
-      
-          <div class="class-preview">
+          <!-- Preview -->
+          <!--
+          <div class="card-preview">
             <div class="row">
-              <div style="text-align: center;">hotdog</div>
+              <div class="col-6">Name</div>
+              <div class="col-6">Position</div>
             </div>
           </div>
- -->
-          <div class="card-preview" id="Back-To-School"></div>
+          -->
+
+          <div class="card-footer text-white-100 small pt-2">
+            <h6 class="card-title mb-0">June 18, 2025</h6>
+          </div>
+
+          <!-- Expanded View -->
+          <div class="note-expanded d-none">
+            <div class="note-expanded-inner">
+              <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
+              <h5 class="card-title expanded-title">TWG | Back-To-School Orientation for the S.Y. 2025-2026</h5>
+
+              <!--
+              <div class="class-preview">
+                <div class="row">
+                  <div style="text-align: center;">hotdog</div>
+                </div>
+              </div>
+              -->
+
+              <div class="card-preview" id="Back-To-School"></div>
+
+              <div class="card-footer text-white-100 small pt-2">
+                <h6 class="card-title mb-0">TWG | Back-To-School Orientation for the S.Y. 2025-2026</h6>
+              </div>
+            </div>
+          </div>
 
           <!-- Add more here -->
-
-
         </div>
       </div>
 
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+        <div class="card text-bg-primary p-3 note" data-note data-disabled>
+          <h5 class="card-title">Monthly Clean-Up Drive w/ LGU</h5>
+
+          <!-- Preview -->
+          <!--
+          <div class="card-preview">
+            <div class="row">
+              <div class="col-6">Name</div>
+              <div class="col-6">Position</div>
+            </div>
+          </div>
+          -->
+
+          <div class="card-footer text-white-100 small pt-2">
+            <h6 class="card-title mb-0">July 26, 2025</h6>
+          </div>
+
+          <!-- Expanded View -->
+          <div class="note-expanded d-none">
+            <div class="note-expanded-inner">
+              <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
+              <h5 class="card-title expanded-title">TWG | Back-To-School Orientation for the S.Y. 2025-2026</h5>
+
+              <!--
+              <div class="class-preview">
+                <div class="row">
+                  <div style="text-align: center;">hotdog</div>
+                </div>
+              </div>
+              -->
+
+              <div class="card-preview" id="Back-To-School"></div>
+
+              <div class="card-footer text-white-100 small pt-2">
+                <h6 class="card-title mb-0">TWG | Back-To-School Orientation for the S.Y. 2025-2026</h6>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add more here -->
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-    </div>
 
   <!-- JS -->
   <script>
-  const sidebar = document.getElementById('sidebar');
-  const toggleBtn = document.getElementById('toggleBtn');
-  const searchForm = document.getElementById("searchForm");
-  const searchInput = document.getElementById("searchInput");
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const searchForm = document.getElementById("searchForm");
+    const searchInput = document.getElementById("searchInput");
 
-  // ✅ Toggle sidebar + close expanded card on mobile
-  toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('collapsed');
-    if (window.innerWidth < 992) {
-      closeExpanded();
-    }
-  });
-
-  // Auto-collapse sidebar on small screen resize
-  function handleResize() {
-    if (window.innerWidth < 992) {
-      sidebar.classList.add('collapsed');
-    } else {
-      sidebar.classList.remove('collapsed');
-    }
-  }
-  window.addEventListener('resize', handleResize);
-  window.addEventListener('DOMContentLoaded', handleResize);
-
-  // Auto-collapse sidebar if clicked outside
-  document.addEventListener('click', function (e) {
-    const isSmallScreen = window.innerWidth <= 991.98;
-    if (
-      isSmallScreen &&
-      !sidebar.contains(e.target) &&
-      !toggleBtn.contains(e.target)
-    ) {
-      sidebar.classList.add('collapsed');
-    }
-  });
-
-  searchInput.addEventListener("focus", function () {
-  closeExpanded(); // ✅ Hide expanded view when user clicks the search bar
-});
-
-searchInput.addEventListener("input", function () {
-  const query = searchInput.value.toLowerCase();
-  const notes = document.querySelectorAll("#noteContainer .card");
-
-  notes.forEach(note => {
-    const text = note.textContent.toLowerCase();
-    note.parentElement.style.display = text.includes(query) ? "" : "none";
-  });
-});
-
-
-  // Search filter
-  searchInput.addEventListener("input", function () {
-    const query = searchInput.value.toLowerCase();
-    const notes = document.querySelectorAll("#noteContainer .card");
-
-    notes.forEach(note => {
-      const text = note.textContent.toLowerCase();
-      note.parentElement.style.display = text.includes(query) ? "" : "none";
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+      if (window.innerWidth < 992) {
+        closeExpanded();
+      }
     });
-  });
 
-  document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll('[data-note]').forEach(note => {
-    note.addEventListener('click', e => {
+    function handleResize() {
+      if (window.innerWidth < 992) {
+        sidebar.classList.add('collapsed');
+      } else {
+        sidebar.classList.remove('collapsed');
+      }
+    }
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('DOMContentLoaded', handleResize);
+
+    document.addEventListener('click', function (e) {
+      const isSmallScreen = window.innerWidth <= 991.98;
+      if (
+        isSmallScreen &&
+        !sidebar.contains(e.target) &&
+        !toggleBtn.contains(e.target)
+      ) {
+        sidebar.classList.add('collapsed');
+      }
+    });
+
+    searchInput.addEventListener("focus", function () {
+      closeExpanded();
+    });
+
+    searchInput.addEventListener("input", function () {
+      const query = searchInput.value.toLowerCase();
+      const notes = document.querySelectorAll("#noteContainer .card");
+
+      notes.forEach(note => {
+        const text = note.textContent.toLowerCase();
+        note.parentElement.style.display = text.includes(query) ? "" : "none";
+      });
+    });
+
+    document.querySelectorAll('[data-note]').forEach(note => {
+      note.addEventListener('click', e => {
+        const isDisabled = note.hasAttribute('data-disabled');
+
+        if (isDisabled) {
+          e.preventDefault();
+          alert("The list of this certificate is currently unavailable.");
+          return; // Do not open
+      }
+
+      // If not disabled, proceed with expand
       if (!note.classList.contains('expanded') && !e.target.classList.contains('btn-close-note')) {
         note.classList.add('expanded');
         note.querySelector('.note-expanded').classList.remove('d-none');
@@ -577,75 +584,51 @@ searchInput.addEventListener("input", function () {
       document.querySelector('.backdrop')?.remove();
     });
   });
-});
 
-
-  function closeExpanded() {
-  const expandedNote = document.querySelector(".note-expanded");
-  const expandedCard = document.querySelector(".card.expanded");
-  if (expandedNote && expandedCard) {
-    expandedNote.classList.add("d-none");
-    expandedCard.classList.remove("expanded");
-  }
-  document.querySelector(".backdrop")?.remove();
-}
-
-
-  function adjustSidebarPadding() {
-    const navbar = document.querySelector('.navbar');
-    const sidebar = document.getElementById('sidebar');
-    
-    if (window.innerWidth < 992 && navbar && sidebar) {
-      sidebar.style.paddingTop = navbar.offsetHeight + 'px';
-    } else if (sidebar) {
-      sidebar.style.paddingTop = '';
+    function closeExpanded() {
+      const expandedNote = document.querySelector(".note-expanded");
+      const expandedCard = document.querySelector(".card.expanded");
+      if (expandedNote && expandedCard) {
+        expandedNote.classList.add("d-none");
+        expandedCard.classList.remove("expanded");
+      }
+      document.querySelector(".backdrop")?.remove();
     }
-  }
 
-  window.addEventListener('resize', adjustSidebarPadding);
-  window.addEventListener('DOMContentLoaded', adjustSidebarPadding);
+    function adjustSidebarPadding() {
+      const navbar = document.querySelector('.navbar');
+      const sidebar = document.getElementById('sidebar');
 
-// ✅ Alert on nav-link click
-    // ✅ Alert on nav-link click
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-  link.addEventListener('click', function (e) {
-    e.preventDefault();
-    alert("This page is currently unavailable. Thank you!");
-  });
-});
+      if (window.innerWidth < 992 && navbar && sidebar) {
+        sidebar.style.paddingTop = navbar.offsetHeight + 'px';
+      } else if (sidebar) {
+        sidebar.style.paddingTop = '';
+      }
+    }
 
+    window.addEventListener('resize', adjustSidebarPadding);
+    window.addEventListener('DOMContentLoaded', adjustSidebarPadding);
 
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        alert("This page is currently unavailable. Thank you!");
+      });
+    });
+  </script>
 
+  <style>
+    * {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+  </style>
 
-
-
-
-</script>
-
-
-<style>
-  /* Disable text selection and dragging */
-  * {
-    -webkit-user-select: none;  /* Safari */
-    -moz-user-select: none;     /* Firefox */
-    -ms-user-select: none;      /* IE10+/Edge */
-    user-select: none;          /* Standard */
-
-    -webkit-user-drag: none;
-  }
-</style>
-
-<script src="Actions Disabled.js"></script>
-<script src="Load names.js"></script>
-
-
-
-
-
-
-
-
-
+  <script src="Actions Disabled.js"></script>
+  <script src="Load names.js"></script>
 </body>
 </html>
