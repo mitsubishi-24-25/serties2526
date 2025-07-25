@@ -85,6 +85,7 @@
     .card {
       cursor: pointer;
       transition: 0.3s;
+      position: relative;
     }
 
     .card-title {
@@ -228,6 +229,12 @@
   transition: 0.2s ease;
   transform: scale(1.01);
 }
+
+.card.expanded:hover {
+  box-shadow: none;
+  transform: none;
+}
+
 
 @media (max-width: 991.98px) {
   #sidebar {
@@ -451,40 +458,40 @@
 
       <div class="card-preview">
         <div class="row gx-2">
-          <div class="col-9">Uan Carl V. Vardeleon</div>
-          <div class="col-3">GAS 12-A</div>
-          <div class="col-9">Clarence Jefferson T. Bulatao</div>
-          <div class="col-3">ICT 12 -A</div>
-          <div class="col-9">Aaron John Christopher Javier</div>
-          <div class="col-3">ICT 12-A</div>
-          <div class="col-9">Jericho Santillan</div>
-          <div class="col-3">ICT 12-A</div>
-          <div class="col-9">Justine Ariz F. Santos</div>
-          <div class="col-3">ICT 12-A</div>
-          <div class="col-9">Mark Laurence E. Mempin</div>
-          <div class="col-3">ICT 12-A</div>
-          <div class="col-9">Rich William Bobis</div>
-          <div class="col-3">ICT 12-A</div>
-          <div class="col-9">Rocky N. Dela Rosa</div>
-          <div class="col-3">ICT 12-A</div>
-          <div class="col-9">Arvince  D. Dela Cruz</div>
-          <div class="col-3">ICT 12-A</div>
-          <div class="col-9">Ruel John DC. Dela Cruz</div>
-          <div class="col-3">ICT 12-A</div>
-          <div class="col-9">TJ Miel N. Bernabe</div>
-          <div class="col-3">STEM 12-A</div>
-          <div class="col-9">Maria Shekainah Grace M. Cruz</div>
-          <div class="col-3">STEM 12-A</div>
-          <div class="col-9">Whency T. Dela Rosa</div>
-          <div class="col-3">STEM 12-A</div>
-          <div class="col-9">Jonash Mark T. Ibaya</div>
-          <div class="col-3">STEM 12-A</div>
-          <div class="col-9">Paulyn DL. Espiritu</div>
-          <div class="col-3">STEM 12-A</div>
-          <div class="col-9">Tsivaz Yhael C. Neri</div>
-          <div class="col-3">STEM 11-B</div>
-          <div class="col-9">Gabriel F. Pascual</div>
-          <div class="col-3">STEM 11-A</div>
+          <div class="col-7">Uan Carl V. Vardeleon</div>
+          <div class="col-5">GAS 12-A</div>
+          <div class="col-7">Clarence Jefferson T. Bulatao</div>
+          <div class="col-5">ICT 12 -A</div>
+          <div class="col-7">Aaron John Christopher Javier</div>
+          <div class="col-5">ICT 12-A</div>
+          <div class="col-7">Jericho Santillan</div>
+          <div class="col-5">ICT 12-A</div>
+          <div class="col-7">Justine Ariz F. Santos</div>
+          <div class="col-5">ICT 12-A</div>
+          <div class="col-7">Mark Laurence E. Mempin</div>
+          <div class="col-5">ICT 12-A</div>
+          <div class="col-7">Rich William Bobis</div>
+          <div class="col-5">ICT 12-A</div>
+          <div class="col-7">Rocky N. Dela Rosa</div>
+          <div class="col-5">ICT 12-A</div>
+          <div class="col-7">Arvince  D. Dela Cruz</div>
+          <div class="col-5">ICT 12-A</div>
+          <div class="col-7">Ruel John DC. Dela Cruz</div>
+          <div class="col-5">ICT 12-A</div>
+          <div class="col-7">TJ Miel N. Bernabe</div>
+          <div class="col-5">STEM 12-A</div>
+          <div class="col-7">Maria Shekainah Grace M. Cruz</div>
+          <div class="col-5">STEM 12-A</div>
+          <div class="col-7">Whency T. Dela Rosa</div>
+          <div class="col-5">STEM 12-A</div>
+          <div class="col-7">Jonash Mark T. Ibaya</div>
+          <div class="col-5">STEM 12-A</div>
+          <div class="col-7">Paulyn DL. Espiritu</div>
+          <div class="col-5">STEM 12-A</div>
+          <div class="col-7">Tsivaz Yhael C. Neri</div>
+          <div class="col-5">STEM 11-B</div>
+          <div class="col-7">Gabriel F. Pascual</div>
+          <div class="col-5">STEM 11-A</div>
 
           <!-- Add more here -->
 
