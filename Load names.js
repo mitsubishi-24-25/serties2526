@@ -27,3 +27,18 @@ fetch('Back-To-School.json')
       container.appendChild(row);
     });
   });
+
+  fetch('Symposium_AP.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('Symposium_AP');
+    data.forEach(student => {
+      const row = document.createElement('div');
+      row.className = 'row gx-2';
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container.appendChild(row);
+    });
+  });
