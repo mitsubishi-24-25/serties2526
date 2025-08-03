@@ -355,6 +355,14 @@
         background-size: 100%;
       }
     }
+
+    .highlighted {
+      background-color: lightblue;
+      padding: 2px 4px;
+      border-radius: 3px;
+      transition: background-color 1s ease;
+    }
+
   </style>
 </head>
 
@@ -433,7 +441,7 @@
           <div class="note-expanded d-none">
             <div class="note-expanded-inner">
               <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
-              <h5 class="card-title expanded-title">Symposium on Emergency Preparedness and Response for AP Grade 10 Students, with SERT Officers and Members of the First Aid, Search & Rescue, and Transportation Team</h5>
+              <h5 class="card-title expanded-title">Symposium on Emergency Preparedness and Response for Grade 10 Students</h5>
 
               <div class="class-preview">
                 <div class="row">
@@ -681,6 +689,37 @@
         note.classList.add('expanded');
         note.querySelector('.note-expanded').classList.remove('d-none');
 
+        // Delay to let content render
+      setTimeout(() => {
+        const query = searchInput.value.trim().toLowerCase();
+
+        if (query === "") return; // 🔒 Skip if search bar is empty
+
+        const nameDivs = note.querySelectorAll('.note-expanded .col-8');
+
+        // Remove old highlights
+        nameDivs.forEach(div => div.classList.remove('highlighted'));
+
+        // Highlight matching names only
+        let firstMatch = null;
+        nameDivs.forEach(div => {
+          const name = div.innerText.trim().toLowerCase();
+          if (name.includes(query)) {
+            div.classList.add('highlighted');
+            if (!firstMatch) firstMatch = div;
+          }
+        });
+
+        if (firstMatch) {
+          firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+      }, 200);
+
+
+
+
+
         const backdrop = document.createElement('div');
         backdrop.className = 'backdrop';
         backdrop.onclick = () => {
@@ -702,14 +741,21 @@
   });
 
     function closeExpanded() {
-      const expandedNote = document.querySelector(".note-expanded");
-      const expandedCard = document.querySelector(".card.expanded");
-      if (expandedNote && expandedCard) {
-        expandedNote.classList.add("d-none");
-        expandedCard.classList.remove("expanded");
-      }
-      document.querySelector(".backdrop")?.remove();
+      const expandedCards = document.querySelectorAll(".card.expanded");
+      const backdrops = document.querySelectorAll(".backdrop");
+
+      expandedCards.forEach(card => {
+        const expandedNote = card.querySelector(".note-expanded");
+        if (expandedNote) {
+          expandedNote.querySelectorAll('.highlighted').forEach(el => el.classList.remove('highlighted'));
+          expandedNote.classList.add("d-none");
+        }
+        card.classList.remove("expanded");
+      });
+
+      backdrops.forEach(backdrop => backdrop.remove());
     }
+
 
     function adjustSidebarPadding() {
       const navbar = document.querySelector('.navbar');
