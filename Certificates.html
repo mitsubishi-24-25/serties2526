@@ -799,7 +799,15 @@
 
         if (query === "") return; // 🔒 Skip if search bar is empty
 
-        const nameDivs = note.querySelectorAll('.note-expanded .col-8');
+        const highlightColumnClasses = ['col-4', 'col-8']; // ✅ Add as many as you want
+        let nameDivs = [];
+
+        // Get all matching divs from multiple columns
+        highlightColumnClasses.forEach(className => {
+          const divs = Array.from(note.querySelectorAll(`.note-expanded .${className}`));
+          nameDivs = nameDivs.concat(divs);
+        });
+
 
         // Remove old highlights
         nameDivs.forEach(div => div.classList.remove('highlighted'));
@@ -901,4 +909,5 @@
   <script src="Load names.js"></script>
 </body>
 </html>
+
 
