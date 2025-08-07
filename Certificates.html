@@ -363,6 +363,27 @@
       transition: background-color 1s ease;
     }
 
+    .toast-message {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .toast-show {
+      opacity: 1;
+    }
+
+
+
   </style>
 </head>
 
@@ -740,6 +761,31 @@
       });
     });
 
+    searchInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        // Close the mobile keyboard
+        searchInput.blur();
+
+        // Show toast message
+        const msg = document.createElement('div');
+        msg.className = 'toast-message';
+        msg.textContent = "This is an automatic search—you don't have to click Enter.";
+        document.body.appendChild(msg);
+
+        // Fade in the toast
+        setTimeout(() => {
+          msg.classList.add('toast-show');
+        }, 10);
+
+        // Remove after 2 seconds
+        setTimeout(() => {
+          msg.classList.remove('toast-show');
+          setTimeout(() => msg.remove(), 300); // Wait for fade out
+        }, 2000);
+      }
+    });
+
+
     document.querySelectorAll('[data-note]').forEach(note => {
       note.addEventListener('click', e => {
         const isDisabled = note.hasAttribute('data-disabled');
@@ -782,6 +828,7 @@
 
       }, 200);
 
+      
 
 
 
