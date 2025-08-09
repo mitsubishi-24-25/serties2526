@@ -341,25 +341,26 @@
     }
 
     .page-background {
-      position: fixed;
-      top: 1.5rem;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      background-image: url('low quality.png');
-      background-repeat: no-repeat;
-      background-position: center center;
-      opacity: 0.08;
-      pointer-events: none;
-      background-size: 40% auto;
-    }
+  position: fixed;
+  top: 0; /* better to make it cover exactly */
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999; /* very high so it's above everything */
+  background-image: url('low quality.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.05;
+  pointer-events: none; /* still allows clicks through */
+  background-size: 40% auto;
+}
 
-    @media (max-width: 576px) {
-      .page-background {
-        background-size: 100%;
-      }
-    }
+@media (max-width: 576px) {
+  .page-background {
+    background-size: 100%;
+  }
+}
+
 
     .highlighted {
       background-color: lightblue;
@@ -495,7 +496,7 @@
               <div class="card-preview" id="Member2"></div>
 
               <div class="card-footer text-white-100 small pt-2">
-                <h6 class="card-title mb-0">Ap Symposium on Emergency</h6>
+                <h6 class="card-title mb-0">Symposium on Emergency</h6>
               </div>
             </div>
           </div>
@@ -883,6 +884,8 @@
       link.addEventListener('click', function (e) {
         e.preventDefault();
         showToast("This page is currently unavailable. Thank you!");
+        
+        sidebar.classList.add('collapsed');
       });
     });
   </script>

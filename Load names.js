@@ -82,21 +82,6 @@ fetch('Symposium_AP.json')
     });
   });
 
-  fetch('Project_ALAGA.json')
-  .then(response => response.json())
-  .then(data => {
-    const container = document.getElementById('Project_ALAGA');
-    data.forEach(student => {
-      const row = document.createElement('div');
-      row.className = 'row gx-2';
-      row.innerHTML = `
-        <div class="col-8">${student.name}</div>
-        <div class="col-4">${student.section}</div>
-      `;
-      container.appendChild(row);
-    });
-  });
-
 fetch('Gawad_Kalasag.json')
   .then(response => response.json())
   .then(data => {
