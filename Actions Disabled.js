@@ -10,27 +10,32 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       e.preventDefault();
       showToast(message); // ✅ works because toast.js loaded first
+      closeExpanded();
     }
   });
 
   document.addEventListener("contextmenu", function (e) {
     e.preventDefault();
     showToast(message);
+    closeExpanded();
   });
 
   document.addEventListener("copy", function (e) {
     e.preventDefault();
     showToast(message);
+    closeExpanded();
   });
 
   document.addEventListener("cut", function (e) {
     e.preventDefault();
     showToast(message);
+    closeExpanded();
   });
 
   document.addEventListener("dragstart", function (e) {
     e.preventDefault();
     showToast(message);
+    closeExpanded();
   });
 
   document.addEventListener("touchstart", function (e) {
