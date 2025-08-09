@@ -246,6 +246,10 @@
       text-align: right;
     }
 
+    .card-preview .col-12{
+      text-align: center;
+    }
+
     @media (max-width: 991.98px) {
       #sidebar {
         position: absolute;
@@ -374,7 +378,7 @@
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #333;
+      background-color: #0d6efd;
       color: #fff;
       padding: 10px 20px;
       border-radius: 8px;
@@ -417,7 +421,7 @@
             id="searchInput"
             class="form-control me-2 bg-white text-dark w-75 w-lg-auto"
             type="search"
-            placeholder="Search Name / Section / Event"
+            placeholder="Search Name / Section / Club / Event"
             aria-label="Search"
           />
         </form>
@@ -472,7 +476,7 @@
 
               <div class="class-preview">
                 <div class="row">
-                  <div style="text-align: center; margin-bottom: 2rem;">SERT Officers A.Y. 2025-2026</div>
+                  <div style="text-align: center; margin-bottom: 2rem;" class="Yes">SERT Officers A.Y. 2025-2026</div>
                 </div>
               </div>
 
@@ -480,7 +484,7 @@
 
               <div class="class-preview">
                 <div class="row">
-                  <div style="text-align: center; margin-bottom: 2rem;">SERT Members of First Aid Search & Rescue Team</div>
+                  <div style="text-align: center; margin-bottom: 2rem;" class="Yes">SERT Members of First Aid Search & Rescue Team</div>
                 </div>
               </div>
 
@@ -489,7 +493,7 @@
 
               <div class="class-preview">
                 <div class="row">
-                  <div style="text-align: center; margin-bottom: 2rem;">SERT Members of Transportation Team</div>
+                  <div style="text-align: center; margin-bottom: 2rem;" class="Yes">SERT Members of Transportation Team</div>
                 </div>
               </div>
 
@@ -617,11 +621,25 @@
               <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
               <h5 class="card-title expanded-title">Regional Search for GAWAD KALASAG (Kalamidad at Sakuna ay Labanan, Sariling Galing ang Kaligtasan) 2025</h5>
 
+              <div class="class-preview">
+                <div class="row">
+                  <div style="text-align: center; margin-bottom: 2rem;" class="Yes">Clubs and Organizations S.Y. 2025-2026</div>
+                </div>
+              </div>
+
+              <div class="card-preview" id="Clubs"></div>
+
+              <div class="class-preview">
+                <div class="row">
+                  <div style="text-align: center; margin-bottom: 2rem;" class="Yes">SERT Officers A.Y. 2025-2026</div>
+                </div>
+              </div>
+
               <div class="card-preview" id="SERT"></div>
 
               <div class="class-preview">
                 <div class="row">
-                  <div style="text-align: center; margin-bottom: 2rem;">SERT Members</div>
+                  <div style="text-align: center; margin-bottom: 2rem;" class="Yes">SERT Members</div>
                 </div>
               </div>
 
@@ -630,7 +648,7 @@
 
               <div class="class-preview">
                 <div class="row">
-                  <div style="text-align: center; margin-bottom: 2rem;">Supreme Secondary Learner Government</div>
+                  <div style="text-align: center; margin-bottom: 2rem;" class="Yes">Supreme Secondary Learner Government (SSLG)</div>
                 </div>
               </div>
 
@@ -638,7 +656,7 @@
 
               <div class="class-preview">
                 <div class="row">
-                  <div style="text-align: center; margin-bottom: 2rem;">BoyScout of the Philippines</div>
+                  <div style="text-align: center; margin-bottom: 2rem;" class="Yes">Boy Scouts of the Philippines</div>
                 </div>
               </div>
 
@@ -794,12 +812,12 @@
 
         if (query === "") return; // 🔒 Skip if search bar is empty
 
-        const highlightColumnClasses = ['col-4', 'col-8']; // ✅ Add as many as you want
+        const highlightColumnClasses = ['col-4', 'col-8', 'col-12', 'Yes']; // ✅ Add as many as you want
         let nameDivs = [];
 
         // Get all matching divs from multiple columns
         highlightColumnClasses.forEach(className => {
-          const divs = Array.from(note.querySelectorAll(`.note-expanded .${className}`));
+          const divs = Array.from(note.querySelectorAll(`.note-expanded [class*="${className}`));
           nameDivs = nameDivs.concat(divs);
         });
 
@@ -809,9 +827,10 @@
 
         // Highlight matching names only
         let firstMatch = null;
+
         nameDivs.forEach(div => {
-          const name = div.innerText.trim().toLowerCase();
-          if (name.includes(query)) {
+          const text = div.innerText.trim().toLowerCase();
+          if (text.includes(query)) {
             div.classList.add('highlighted');
             if (!firstMatch) firstMatch = div;
           }

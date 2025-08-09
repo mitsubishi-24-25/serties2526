@@ -98,6 +98,20 @@
 { "name":  "Cantillana, Emerald", "section": "12 - HE B" },
 { "name":  "Reyes, Rain Marfin", "section": "12 - STEM B" }
 
+    ],
+
+    "Clubs": [
+{ "name":  "Ang Tanglaw" },
+{ "name":  "Believers of Young Technology Enthusiasts Society (BYTES)" },
+{ "name":  "Boy Scouts of the Philippines" },
+{ "name":  "Math Club" },
+{ "name":  "Noble Optimistic Science Troops of Carlos (NOSToC)" },
+{ "name":  "School Emergency Response Team (SERT)" },
+{ "name":  "Science Club" },
+{ "name":  "Silver Torch" },
+{ "name":  "Sports Club" },
+{ "name":  "Supreme Secondary Learner Government (SSLG)" },
+{ "name":  "Yes-O Junior High School" }
     ]
 
 }

@@ -86,10 +86,20 @@ fetch('Gawad_Kalasag.json')
   .then(response => response.json())
   .then(data => {
 
+    const container0 = document.getElementById("Clubs");
     const container1 = document.getElementById('SERT');
     const container2 = document.getElementById('SERT Member');
     const container3 = document.getElementById('SSLG');
     const container4 = document.getElementById('BoyScout');
+
+    data.Clubs.forEach(student => {
+      const row = document.createElement('div');
+      row.className = 'row gx-2';
+      row.innerHTML = `
+        <div class="col-12">${student.name}</div>
+      `;
+      container0.appendChild(row);
+    });
 
 
     data.Officers.forEach(student => {
