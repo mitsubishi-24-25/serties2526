@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const message = "Action disabled by5 SHS Coordinator.";
+  const message = "Action disabled by SHS Coordinator.";
 
   document.addEventListener("keydown", function (e) {
     const key = e.key.toLowerCase();
     if (
       e.key === "F12" ||
       (e.ctrlKey && e.shiftKey && (key === "i" || key === "j")) ||
-      (e.ctrlKey && ["u", "c", "x"].includes(key))
+      (e.ctrlKey && ["u", "c", "x", "p"].includes(key))
     ) {
       e.preventDefault();
       showToast(message); // ✅ works because toast.js loaded first
