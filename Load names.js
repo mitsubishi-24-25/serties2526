@@ -1,3 +1,32 @@
+fetch('August Clean-Up.json')
+  .then(response => response.json())
+  .then(data => {
+
+    const container1 = document.getElementById('Officer');
+    const container2 = document.getElementById('Member');
+
+    data.v1.forEach(student => {
+      const row = document.createElement('div');
+      row.className = 'row gx-2';
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container1.appendChild(row);
+    });
+
+    data.v2.forEach(student => {
+      const row = document.createElement('div');
+      row.className = 'row gx-2';
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container2.appendChild(row);
+    });
+
+  });
+
 fetch('Back-To-School.json')
   .then(response => response.json())
   .then(data => {
