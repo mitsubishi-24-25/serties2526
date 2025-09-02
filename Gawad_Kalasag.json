@@ -92,7 +92,7 @@
 { "name":  "Palomo, Jury", "section": "12 - GAS C" },
 { "name":  "Quirabo, Wenzie", "section": "12 - GAS E" },
 { "name":  "Cabuay, Mark Weydel", "section": "12 - GAS G" },
-{ "name":  "Mirva, Eduardo Jr.", "section": "12 - GAS G" },
+{ "name":  "Mina, Eduardo Jr.", "section": "12 - GAS G" },
 { "name":  "Villadares, Andrey", "section": "12 - GAS G" },
 { "name":  "Manalo, Vince", "section": "12 - HE A" },
 { "name":  "Cantillana, Emerald", "section": "12 - HE B" },
@@ -113,5 +113,6 @@
 { "name":  "Supreme Secondary Learner Government (SSLG)" },
 { "name":  "Yes-O Junior High School" }
     ]
+
 
 }
