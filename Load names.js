@@ -1,3 +1,65 @@
+fetch('wins.json')
+  .then(response => response.json())
+  .then(data => {
+
+    const container0 = document.getElementById("Clubs");
+    const container1 = document.getElementById('SERT');
+    const container2 = document.getElementById('SERT Member');
+    const container3 = document.getElementById('SSLG');
+    const container4 = document.getElementById('Scouts');
+
+    data.Clubs.forEach(student => {
+      const row = document.createElement('div');
+      row.className = 'row gx-2';
+      row.innerHTML = `
+        <div class="col-12">${student.name}</div>
+      `;
+      container0.appendChild(row);
+    });
+
+
+    data.Officers.forEach(student => {
+      const row = document.createElement('div');
+      row.className = 'row gx-2';
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container1.appendChild(row);
+    });
+
+    data.Members.forEach(student => {
+      const row = document.createElement('div');
+      row.className = 'row gx-2';
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container2.appendChild(row);
+    });
+
+    data.SSLG.forEach(student => {
+      const row = document.createElement('div');
+      row.className = 'row gx-2';
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container3.appendChild(row);
+    });
+
+    data.Scouts.forEach(student => {
+      const row = document.createElement('div');
+      row.className = 'row gx-2';
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container4.appendChild(row);
+    });
+
+  });
+
 fetch('August Clean-Up.json')
   .then(response => response.json())
   .then(data => {
