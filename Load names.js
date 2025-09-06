@@ -2,11 +2,11 @@ fetch('wins.json')
   .then(response => response.json())
   .then(data => {
 
-    const container0 = document.getElementById("Clubs");
-    const container1 = document.getElementById('SERT');
-    const container2 = document.getElementById('SERT Member');
-    const container3 = document.getElementById('SSLG');
-    const container4 = document.getElementById('Scouts');
+    const container0 = document.getElementById("Clubs-wins");
+    const container1 = document.getElementById('SERT-wins');
+    const container2 = document.getElementById('SERT-Member-wins');
+    const container3 = document.getElementById('SSLG-wins');
+    const container4 = document.getElementById('Scouts-wins');
 
     data.Clubs.forEach(student => {
       const row = document.createElement('div');
@@ -179,7 +179,7 @@ fetch('Gawad_Kalasag.json')
 
     const container0 = document.getElementById("Clubs");
     const container1 = document.getElementById('SERT');
-    const container2 = document.getElementById('SERT Member');
+    const container2 = document.getElementById('SERT-Member');
     const container3 = document.getElementById('SSLG');
     const container4 = document.getElementById('BoyScout');
 
