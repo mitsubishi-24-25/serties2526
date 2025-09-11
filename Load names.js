@@ -1,3 +1,46 @@
+fetch('Third_Quarter_NSED.json')
+  .then(response => response.json())
+  .then(data => {
+
+    const container1 = document.getElementById('SERT-3nsed');
+    const container2 = document.getElementById('SERT-Member-3nsed');
+
+    data.ver1.forEach(student => {
+      const row = document.createElement('div');
+      row.className = 'row gx-2';
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container1.appendChild(row);
+    });
+
+    data.ver2.forEach(student => {
+      const row = document.createElement('div');
+      row.className = 'row gx-2';
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container2.appendChild(row);
+    });
+  });
+
+fetch('Parent-Teacher_Conference.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('SERT-pta');
+    data.forEach(student => {
+      const row = document.createElement('div');
+      row.className = 'row gx-2';
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container.appendChild(row);
+    });
+  });
+
 fetch('wins.json')
   .then(response => response.json())
   .then(data => {
