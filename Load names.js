@@ -103,6 +103,21 @@ fetch('wins.json')
 
   });
 
+fetch('SSS-Aug.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('SSS-Aug');
+    data.forEach(student => {
+      const row = document.createElement('div');
+      row.className = 'row gx-2';
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container.appendChild(row);
+    });
+  });
+
 fetch('August Clean-Up.json')
   .then(response => response.json())
   .then(data => {
@@ -151,6 +166,21 @@ fetch('July Clean-Up.json')
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById('July_Clean-Up');
+    data.forEach(student => {
+      const row = document.createElement('div');
+      row.className = 'row gx-2';
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container.appendChild(row);
+    });
+  });
+
+fetch('SSS-July.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('SSS-July');
     data.forEach(student => {
       const row = document.createElement('div');
       row.className = 'row gx-2';
