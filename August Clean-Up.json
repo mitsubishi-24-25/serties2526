@@ -5,7 +5,7 @@
 { "name":  "Rapsing, Gabriel Ian S.", "section": "9 - Diamond" },
 { "name":  "Bermudez, Harry David D.", "section": "10 - Narra" },
 { "name":  "Coronel, Ily Eryn V.", "section": "10 - Narra" },
-{ "name":  "Romero, Marah Ianah M.", "section": "10 - Narra" },
+{ "name":  "Romero, Mara Ianah M.", "section": "10 - Narra" },
 { "name":  "Tagaza, Rhiana Mae DC.", "section": "10 - Narra" },
 { "name":  "Bulatao, Clarence Jefferson T.", "section": "12 - ICT A" },
 { "name":  "Dela Cruz, Ruel John DC.", "section": "12 - ICT A" },
@@ -19,4 +19,5 @@
     "v2":[
     { "name":  "Vergara, Jancel Erwin C.", "section": "9 - Diamond" }
     ]
+
 }
