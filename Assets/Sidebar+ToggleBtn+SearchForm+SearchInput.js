@@ -1,3 +1,12 @@
+const navLinks = document.querySelectorAll('.none');
+navLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+        showToast("This page is currently unavailable. Thank you!");
+        sidebar.classList.add('collapsed');
+    });
+});
+
 const sidebar = document.getElementById('sidebar');
 const toggleBtn = document.getElementById('toggleBtn');
 const searchForm = document.getElementById("searchForm");
@@ -174,12 +183,3 @@ window.addEventListener('resize', adjustLayoutPadding);
 
 window.addEventListener('resize', adjustSidebarPadding);
 window.addEventListener('DOMContentLoaded', adjustSidebarPadding);
-
-const navLinks = document.querySelectorAll('.none');
-navLinks.forEach(link => {
-link.addEventListener('click', function (e) {
-    e.preventDefault();
-    showToast("This page is currently unavailable. Thank you!");
-    sidebar.classList.add('collapsed');
-});
-});
