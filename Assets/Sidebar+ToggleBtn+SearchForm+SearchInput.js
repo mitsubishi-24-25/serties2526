@@ -85,7 +85,7 @@ note.addEventListener('click', e => {
 
     if (isDisabled) {
     e.preventDefault();
-    showToast("The list of this certificate is currently unavailable.");
+    showToast("The certificates for this event have not yet been distributed.");
     return;
     }
 
