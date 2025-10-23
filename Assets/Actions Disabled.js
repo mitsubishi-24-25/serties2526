@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       (e.ctrlKey && e.shiftKey && (key === "i" || key === "j")) ||
       (e.ctrlKey && ["u", "c", "x", "p"].includes(key))
     ) {
+      closeExpanded();
       e.preventDefault();
       showToast(message);
     }
