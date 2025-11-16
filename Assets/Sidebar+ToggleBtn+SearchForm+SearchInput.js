@@ -7,6 +7,32 @@ navLinks.forEach(link => {
     });
 });
 
+function adjustLayoutPadding() {
+const navbar = document.querySelector('.navbar');
+const sidebar = document.getElementById('sidebar');
+const main = document.querySelector('.main');
+
+if (navbar) {
+    const navbarHeight = navbar.offsetHeight + 'px';
+
+    if (window.innerWidth < 992 && sidebar) {
+    sidebar.style.paddingTop = navbarHeight;
+    } else if (sidebar) {
+    sidebar.style.paddingTop = '';
+    }
+
+    if (main) {
+    main.style.paddingTop = navbarHeight;
+    }
+}
+}
+
+window.addEventListener('load', adjustLayoutPadding);
+window.addEventListener('resize', adjustLayoutPadding);
+
+window.addEventListener('resize', adjustSidebarPadding);
+window.addEventListener('DOMContentLoaded', adjustSidebarPadding);
+
 const sidebar = document.getElementById('sidebar');
 const toggleBtn = document.getElementById('toggleBtn');
 const searchForm = document.getElementById("searchForm");
@@ -158,28 +184,4 @@ expandedCards.forEach(card => {
 backdrops.forEach(backdrop => backdrop.remove());
 }
 
-function adjustLayoutPadding() {
-const navbar = document.querySelector('.navbar');
-const sidebar = document.getElementById('sidebar');
-const main = document.querySelector('.main');
 
-if (navbar) {
-    const navbarHeight = navbar.offsetHeight + 'px';
-
-    if (window.innerWidth < 992 && sidebar) {
-    sidebar.style.paddingTop = navbarHeight;
-    } else if (sidebar) {
-    sidebar.style.paddingTop = '';
-    }
-
-    if (main) {
-    main.style.paddingTop = navbarHeight;
-    }
-}
-}
-
-window.addEventListener('load', adjustLayoutPadding);
-window.addEventListener('resize', adjustLayoutPadding);
-
-window.addEventListener('resize', adjustSidebarPadding);
-window.addEventListener('DOMContentLoaded', adjustSidebarPadding);

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>List of Officers</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <div data-include="Assets/Logo.html"></div>
+  <link rel="stylesheet" href="Assets/Design.css">
+  <link rel="stylesheet" href="Assets/Toast.css">
+  <link rel="stylesheet" href="Assets/Sidebar.css">
+
+  <style>
+    /* Card design */
+    :root {
+      --gray: #333;
+      --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      --transition: 0.6s ease;
+    }
+
+    .panels {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 0;
+    }
+
+    .panels li {
+      width: 22%;
+      min-width: 200px;
+      position: relative;
+    }
+
+    .f-b {
+      perspective: 1000px;
+      aspect-ratio: 1/1;
+      width: 100%;
+    }
+
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform var(--transition);
+      box-shadow: var(--card-shadow);
+    }
+
+    .front { transform: rotateY(0deg); }
+    .back { transform: rotateY(180deg); }
+    .f-b:hover .front { transform: rotateY(-180deg); }
+    .f-b:hover .back { transform: rotateY(0deg); }
+
+    .f-b img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: filter 0.3s;
+      filter: saturate(150%) brightness(115%) contrast(90%);
+      border: var(--primary-color) 0.2rem solid;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) { .panels li { width: 45%; } }
+    @media (max-width: 576px) { .panels li { width: 100%; max-width: 300px; } }
+
+    /* Officer details text */
+    .officer-info {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .officer-info h5 {
+      color: var(--primary-color);
+      font-family: var(--font-primary);
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    .officer-info p {
+      margin: 0;
+      color: var(--gray);
+      font-size: 0.9rem;
+      opacity: 0.85;
+      font-family: var(--font-secondary);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page-background">
+    <img src="low" alt="">
+  </div>
+
+  <!-- Header/Navbar -->
+  <nav class="navbar navbar-light bg-primary shadow-sm fixed-top" data-bs-theme="dark">
+    <div class="container-fluid">
+      <div class="d-flex flex-column flex-lg-row w-100 align-items-start align-items-lg-center justify-content-lg-between">
+        <div class="d-flex align-items-center w-100 w-lg-auto justify-content-start mb-2 mb-lg-0">
+          <button class="btn btn-outline-secondary me-2 toggleBtn" id="toggleBtn">☰</button>
+          <img src="Assets/low quality.png" alt="Logo" width="40" style="margin-right: 0.2rem;">
+          <span class="navbar-brand mb-0 h1 d-none d-lg-inline">School Emergency Response Team A.Y. 2025-2026</span>
+          <span class="navbar-brand mb-0 h1 d-inline d-lg-none">SERT A.Y. '25-'26</span>
+        </div>
+
+        <!-- Search Bar -->
+        <form id="searchForm" class="d-flex w-100 w-lg-auto justify-content-center justify-content-lg-end" role="search">
+          <input
+            id="searchInput"
+            class="form-control me-2 bg-white text-dark w-75 w-lg-auto"
+            type="search"
+            placeholder="Search Name / Section / Club / Event"
+            aria-label="Search"
+          />
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <div class="sidebar bg-light collapsed" id="sidebar">
+    <ul class="nav flex-column px-3">
+      <li class="nav-item">
+        <a class="nav-link none" href="">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active fw-bold grain" href="">Officers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Certificates.html">Certificates</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Main content -->
+  <div class="main container" id="mainContent">
+    <div class="row" id="noteContainer">
+
+      <div class="wrapper">
+        <ul class="panels" id="officerList"></ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+
+    // Officers array (name + rank)
+    const officers = [
+      { frontImg: "Officers/Images/Front/1.png", backImg: "Officers/Images/Back/1.png", name: "Clarence Jefferson T. Bulatao", rank: "SHS Coordinator" },
+      { frontImg: "Officers/Images/Front/2.png", backImg: "Officers/Images/Back/2.png", name: "Gabriel F. Pascual", rank: "SHS Co-Coordinator" },
+      { frontImg: "Officers/Images/Front/3.png", backImg: "Officers/Images/Back/3.png", name: "Rhayvenn L. Valdecantos", rank: "JHS Coordinator" },
+      { frontImg: "Officers/Images/Front/4.png", backImg: "Officers/Images/Back/4.png", name: "Gabriel Ian S. Rapsing", rank: "JHS Co-Coordinator" },
+      { frontImg: "Officers/Images/Front/5.png", backImg: "Officers/Images/Back/5.png", name: "Leehyan Heny R. Eugenio", rank: "Adolescent and Reproductive Health Chairwoman" },
+      { frontImg: "Officers/Images/Front/6.png", backImg: "Officers/Images/Back/6.png", name: "Jenny L. Nollas", rank: "Adolescent and Reproductive Health Vice Chairwoman" },
+      { frontImg: "Officers/Images/Front/7.png", backImg: "Officers/Images/Back/7.png", name: "Paulyn DL. Espiritu", rank: "Communication Chairwoman" },
+      { frontImg: "Officers/Images/Front/8.png", backImg: "Officers/Images/Back/8.png", name: "Tsivaz Yhael C. Neri", rank: "Communication Vice Chairman" },
+      { frontImg: "Officers/Images/Front/9.png", backImg: "Officers/Images/Back/9.png", name: "Jericho Santillan", rank: "Disability Support and Guidance Chairman" },
+      { frontImg: "Officers/Images/Front/10.png", backImg: "Officers/Images/Back/10.png", name: "Mara Ianah M. Romero", rank: "Disability Support and Guidance Vice Chairwoman" },
+      { frontImg: "Officers/Images/Front/11.png", backImg: "Officers/Images/Back/11.png", name: "TJ Miel N. Bernabe", rank: "DRRM In Education Chairman" },
+      { frontImg: "Officers/Images/Front/12.png", backImg: "Officers/Images/Back/12.png", name: "Ily Eryn V. Coronel", rank: "DRRM In Education Vice Chairwoman" },
+      { frontImg: "Officers/Images/Front/13.png", backImg: "Officers/Images/Back/13.png", name: "Ruel John DC. Dela Cruz", rank: "Evacuation Chairman" },
+      { frontImg: "Officers/Images/Front/14.png", backImg: "Officers/Images/Back/14.png", name: "Feliz C. Hernando", rank: "Evacuation Vice Chairwoman" },
+      { frontImg: "Officers/Images/Front/15.png", backImg: "Officers/Images/Back/15.png", name: "Whency T. Dela Rosa", rank: "Fire Safety and Warning Chairman" },
+      { frontImg: "Officers/Images/Front/16.png", backImg: "Officers/Images/Back/16.png", name: "Lance Henrick R. Eugenio", rank: "Fire Safety and Warning Vice" },
+      { frontImg: "Officers/Images/Front/17.png", backImg: "Officers/Images/Back/17.png", name: "Angel Khate G. Borcelo", rank: "First Aid Search & Rescue Chairwoman" },
+      { frontImg: "Officers/Images/Front/18.png", backImg: "Officers/Images/Back/18.png", name: "Althea Mariz P. Clemente", rank: "First Aid Search & Rescue Vice Chairwoman" },
+      { frontImg: "Officers/Images/Front/19.png", backImg: "Officers/Images/Back/19.png", name: "Justine Ariz F. Santos", rank: "Logistics/Supply & Relief Chairman" },
+      { frontImg: "Officers/Images/Front/20.png", backImg: "Officers/Images/Back/20.png", name: "Joana Therese E. Reyes", rank: "Logistics/Supply & Relief Vice Chairwoman" },
+      { frontImg: "Officers/Images/Front/21.png", backImg: "Officers/Images/Back/21.png", name: "Arvince D. Dela Cruz", rank: "Material Management Guidance Chairman" },
+      { frontImg: "Officers/Images/Front/22.png", backImg: "Officers/Images/Back/22.png", name: "Jeremiah L. Bolinas", rank: "Material Management Guidance Vice Chairman" },
+      { frontImg: "Officers/Images/Front/23.png", backImg: "Officers/Images/Back/23.png", name: "Angel Erica Mitz R. Carmona", rank: "Psychosocial Support Chairwoman" },
+      { frontImg: "Officers/Images/Front/24.png", backImg: "Officers/Images/Back/24.png", name: "Charise L. Gatus", rank: "Psychosocial Support Vice Chairwoman" },
+      { frontImg: "Officers/Images/Front/25.png", backImg: "Officers/Images/Back/25.png", name: "Maria Shekainah Grace M. Cruz", rank: "School Safety & Sanitation Habit Chairwoman" },
+      { frontImg: "Officers/Images/Front/26.png", backImg: "Officers/Images/Back/26.png", name: "Patricia Ysabel I. Santiago", rank: "School Safety & Sanitation Habit Vice Chairwoman" },
+      { frontImg: "Officers/Images/Front/27.png", backImg: "Officers/Images/Back/27.png", name: "Maria Leoniza B. Arreglo", rank: "Grade 7 Representative | School Safety & Sanitation Habit" },
+      { frontImg: "Officers/Images/Front/28.png", backImg: "Officers/Images/Back/28.png", name: "Rizchel Charice B. Faustino", rank: "Grade 7 Representative | School Safety & Sanitation Habit" },
+      { frontImg: "Officers/Images/Front/29.png", backImg: "Officers/Images/Back/29.png", name: "Jhuztin Jane O. Domanais", rank: "Grade 8 Representative | School Safety & Sanitation Habit" },
+      { frontImg: "Officers/Images/Front/30.png", backImg: "Officers/Images/Back/30.png", name: "Solenn Jade T. Castillo", rank: "Grade 8 Representative | School Safety & Sanitation Habit" },
+      { frontImg: "Officers/Images/Front/31.png", backImg: "Officers/Images/Back/31.png", name: "Eumie Arielle V. Cruz", rank: "Grade 9 Representative | School Safety & Sanitation Habit" },
+      { frontImg: "Officers/Images/Front/32.png", backImg: "Officers/Images/Back/32.png", name: "Jared S. Leonardo", rank: "Grade 9 Representative | School Safety & Sanitation Habit" },
+      { frontImg: "Officers/Images/Front/33.png", backImg: "Officers/Images/Back/33.png", name: "James Renz DC. Payumo", rank: "Grade 10 Representative | School Safety & Sanitation Habit" },
+      { frontImg: "Officers/Images/Front/34.png", backImg: "Officers/Images/Back/34.png", name: "Ayesha Jane V. Victoria", rank: "Grade 10 Representative | School Safety & Sanitation Habit" },
+      { frontImg: "Officers/Images/Front/35.png", backImg: "Officers/Images/Back/35.png", name: "Precious Marghel S. Valimento", rank: "Grade 11 Representative | School Safety & Sanitation Habit" },
+      { frontImg: "Officers/Images/Front/36.png", backImg: "Officers/Images/Back/36.png", name: "Joey Jr. B. Magbanua", rank: "Grade 11 Representative | School Safety & Sanitation Habit" },
+      { frontImg: "Officers/Images/Front/37.png", backImg: "Officers/Images/Back/37.png", name: "Cassandra Danielle J. Geronimo", rank: "Grade 11 Representative | School Safety & Sanitation Habit" },
+      { frontImg: "Officers/Images/Front/38.png", backImg: "Officers/Images/Back/38.png", name: "Rocky N. Dela Rosa", rank: "Grade 12 Representative | School Safety & Sanitation Habit" },
+      { frontImg: "Officers/Images/Front/39.png", backImg: "Officers/Images/Back/39.png", name: "Vanne Ariz F. Santos", rank: "Grade 12 Representative | School Safety & Sanitation Habit" },
+      { frontImg: "Officers/Images/Front/40.png", backImg: "Officers/Images/Back/40.png", name: "Giane Migzie Torres", rank: "Grade 12 Representative | School Safety & Sanitation Habit" },
+      { frontImg: "Officers/Images/Front/41.png", backImg: "Officers/Images/Back/41.png", name: "Jon Jacob D. Valderama", rank: "Site Security Chairman" },
+      { frontImg: "Officers/Images/Front/42.png", backImg: "Officers/Images/Back/42.png", name: "Prince Ryu Cortez Alvarez", rank: "Site Security Vice Chairman" },
+      { frontImg: "Officers/Images/Front/43.png", backImg: "Officers/Images/Back/43.png", name: "Uan Carl V. Vardeleon", rank: "Solid Waste Management Chairman" },
+      { frontImg: "Officers/Images/Front/44.png", backImg: "Officers/Images/Back/44.png", name: "Rhiana Mae DC. Tagaza", rank: "Solid Waste Management Vice Chairwoman" },
+      { frontImg: "Officers/Images/Front/45.png", backImg: "Officers/Images/Back/45.png", name: "JB Adam U. Bassig", rank: "Student Family Reunification Chairman" },
+      { frontImg: "Officers/Images/Front/46.png", backImg: "Officers/Images/Back/46.png", name: "Keiko Hatsumi F. Soquerata", rank: "Student Family Reunification Vice Chairwoman" },
+      { frontImg: "Officers/Images/Front/47.png", backImg: "Officers/Images/Back/47.png", name: "Jonash Mark T. Ibaya", rank: "Transportation Chairman" },
+      { frontImg: "Officers/Images/Front/48.png", backImg: "Officers/Images/Back/48.png", name: "Harry David D. Bermudez", rank: "Transportation Vice Chairman" }
+    ];
+
+    const list = document.getElementById("officerList");
+
+    officers.forEach(officer => {
+      list.innerHTML += `
+        <li>
+          <div class="f-b">
+            <div class="front"><img src="${officer.frontImg}" alt="${officer.name} Front"></div>
+            <div class="back"><img src="${officer.backImg}" alt="${officer.name} Back"></div>
+          </div>
+          <div class="officer-info text-center mt-2">
+            <h5>${officer.name}</h5>
+            <p>${officer.rank}</p>
+          </div>
+        </li>
+      `;
+    });
+  </script>
+
+  <script src="Assets/Sidebar+ToggleBtn+SearchForm+SearchInput.js"></script>
+  <script src="Assets/Toast.js"></script>
+  <script src="Assets/Actions Disabled.js"></script>
+  <script src="Assets/Load names.js"></script>
+  <script src="Assets/include.js"></script>
+  
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+</body>
+</html>
