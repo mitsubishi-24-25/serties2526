@@ -1,3 +1,33 @@
+fetch('Certificates/json/3rd_Q_Safecclass.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('Sections');
+    data.forEach(student => {
+      const row = document.createElement('div');
+      row.className = 'row gx-2';
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container.appendChild(row);
+    });
+  });
+
+fetch('Certificates/json/Info_Distribution.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('Back-To-School');
+    data.forEach(student => {
+      const row = document.createElement('div');
+      row.className = 'row gx-2';
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container.appendChild(row);
+    });
+  });
+
 fetch('Certificates/json/Sep_Clean-Up.json')
   .then(response => response.json())
   .then(data => {
