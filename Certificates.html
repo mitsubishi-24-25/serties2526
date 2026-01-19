@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,7 +13,6 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
-
     .card {
       cursor: pointer;
       transition: 0.3s;
@@ -92,7 +92,7 @@
       font-family: Lexend;
       font-weight: 300;
       cursor: pointer;
-      
+
     }
 
     .note-expanded h5.card-title {
@@ -174,7 +174,7 @@
       text-align: right;
     }
 
-    .card-preview .col-12{
+    .card-preview .col-12 {
       text-align: center;
     }
 
@@ -256,40 +256,37 @@
       max-height: none !important;
     }
 
-    .class-preview{
+    .class-preview {
       font-weight: 800;
       margin-bottom: 2rem;
     }
 
-    .Yes{
+    .Yes {
       text-align: center;
       border-bottom: 0.2rem solid var(--none);
 
     }
-
   </style>
 
   <style>
-    
-.card[data-slide] {
-  opacity: 0;
-  transition: transform 1s ease, opacity 0.5s ease;
-  pointer-events: none;
-}
+    .card[data-slide] {
+      opacity: 0;
+      transition: transform 1s ease, opacity 0.5s ease;
+      pointer-events: none;
+    }
 
-.card[data-slide="right"]:not(.show) {
-  transform: translateX(50px);
-}
+    .card[data-slide="right"]:not(.show) {
+      transform: translateX(50px);
+    }
 
-.card[data-slide="left"]:not(.show) {
-  transform: translateX(-50px);
-}
+    .card[data-slide="left"]:not(.show) {
+      transform: translateX(-50px);
+    }
 
-.card.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
+    .card.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
   </style>
 </head>
 
@@ -303,7 +300,8 @@
 
   <nav class="navbar navbar-light bg-primary shadow-sm fixed-top" data-bs-theme="dark">
     <div class="container-fluid">
-      <div class="d-flex flex-column flex-lg-row w-100 align-items-start align-items-lg-center justify-content-lg-between">
+      <div
+        class="d-flex flex-column flex-lg-row w-100 align-items-start align-items-lg-center justify-content-lg-between">
         <div class="d-flex align-items-center w-100 w-lg-auto justify-content-start mb-2 mb-lg-0">
           <button class="btn btn-outline-secondary me-2 toggleBtn" id="toggleBtn">☰</button>
           <img src="Assets/low quality.png" alt="Logo" width="40" style="margin-right: 0.2rem;">
@@ -311,14 +309,10 @@
           <span class="navbar-brand mb-0 h1 d-inline d-lg-none">SERT A.Y. '25-'26</span>
         </div>
 
-        <form id="searchForm" class="d-flex w-100 w-lg-auto justify-content-center justify-content-lg-end" role="search">
-          <input
-            id="searchInput"
-            class="form-control me-2 bg-white text-dark w-75 w-lg-auto"
-            type="search"
-            placeholder="Search Name / Section / Club / Event"
-            aria-label="Search"
-          />
+        <form id="searchForm" class="d-flex w-100 w-lg-auto justify-content-center justify-content-lg-end"
+          role="search">
+          <input id="searchInput" class="form-control me-2 bg-white text-dark w-75 w-lg-auto" type="search"
+            placeholder="Search Name / Section / Club / Event" aria-label="Search" />
         </form>
       </div>
     </div>
@@ -344,17 +338,168 @@
   <!-- Main content -->
   <div class="main container" id="mainContent">
 
-    <p class="fw-bold text-center Title text-uppercase" data-aos="zoom-in" data-aos-duration="500">Official Certificate Verification</p>
-    <p class="fs-6 Intro" data-aos="fade-right" data-aos-duration="3000" data-aos-delay="300">All certificates issued by the <i><b>School Emergency Response Team</b></i> of <i><b>Carlos F. Gonzales High School</b></i> are listed here.</p>
-    <p class="fs-6 Intro" data-aos="fade-right" data-aos-duration="3000" data-aos-delay="600">This page allows you to verify whether an individual or organization has been officially granted a specific certificate.</p>
-    <p class="fs-6 Intro" data-aos="fade-right" data-aos-duration="3000" data-aos-delay="900">You may search by <i><b>name, section, club, event, or event date.</b></i> Results matching your search will automatically appear as you type.
-Click on an event to view the list of certificate recipients.</p>
+    <p class="fw-bold text-center Title text-uppercase" data-aos="zoom-in" data-aos-duration="500">Official Certificate
+      Verification</p>
+    <p class="fs-6 Intro" data-aos="fade-right" data-aos-duration="3000" data-aos-delay="300">All certificates issued by
+      the <i><b>School Emergency Response Team</b></i> of <i><b>Carlos F. Gonzales High School</b></i> are listed here.
+    </p>
+    <p class="fs-6 Intro" data-aos="fade-right" data-aos-duration="3000" data-aos-delay="600">This page allows you to
+      verify whether an individual or organization has been officially granted a specific certificate.</p>
+    <p class="fs-6 Intro" data-aos="fade-right" data-aos-duration="3000" data-aos-delay="900">You may search by
+      <i><b>name, section, club, event, or event date.</b></i> Results matching your search will automatically appear as
+      you type.
+      Click on an event to view the list of certificate recipients.
+    </p>
 
 
     <div class="row animation-wrapper" id="noteContainer">
 
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "><!--Tree Planting 2026-->
+        <div class="card text-bg-primary p-3 note grain" data-note>
+          <h5 class="card-title">Tree Planting 2026</h5>
+
+          <!-- Preview -->
+          <!--
+          <div class="card-preview">
+            <div class="row">
+              <div class="col-6">Name</div>
+              <div class="col-6">Position</div>
+            </div>
+          </div>
+          -->
+
+          <div class="card-footer text-white-100 small pt-2">
+            <h6 class="card-title mb-0">January 10, 2025</h6>
+          </div>
+
+          <!-- Expanded View -->
+          <div class="note-expanded d-none">
+            <div class="note-expanded-inner">
+              <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
+              <h5 class="card-title expanded-title">Tree Planting Activity Organized by YES-O JHS</h5>
+
+              <div class="card-preview" id="Sections-Tree_planting"></div>
+
+              <div class="card-footer text-white-100 small pt-2">
+                <h6 class="card-title mb-0">Tree Planting 2026</h6>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add more here -->
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "><!--Gift-Giving_Community-->
+        <div class="card text-bg-primary p-3 note grain" data-note>
+          <h5 class="card-title">Gift-Giving to the Community</h5>
+
+          <!-- Preview -->
+          <!--
+          <div class="card-preview">
+            <div class="row">
+              <div class="col-6">Name</div>
+              <div class="col-6">Position</div>
+            </div>
+          </div>
+          -->
+
+          <div class="card-footer text-white-100 small pt-2">
+            <h6 class="card-title mb-0">December 21–23, 2025</h6>
+          </div>
+
+          <!-- Expanded View -->
+          <div class="note-expanded d-none">
+            <div class="note-expanded-inner">
+              <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
+              <h5 class="card-title expanded-title">Gift-Giving to the Community - Outreach Project</h5>
+
+              <div class="card-preview" id="Sections-GiftGiving_Community"></div>
+
+              <div class="card-footer text-white-100 small pt-2">
+                <h6 class="card-title mb-0">Gift-Giving to the Community</h6>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add more here -->
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "><!--Gift-Giving_Utility-->
+        <div class="card text-bg-primary p-3 note grain" data-note>
+          <h5 class="card-title">Gift Giving to the School Utility Personnel</h5>
+
+          <!-- Preview -->
+          <!--
+          <div class="card-preview">
+            <div class="row">
+              <div class="col-6">Name</div>
+              <div class="col-6">Position</div>
+            </div>
+          </div>
+          -->
+
+          <div class="card-footer text-white-100 small pt-2">
+            <h6 class="card-title mb-0">December 18, 2025</h6>
+          </div>
+
+          <!-- Expanded View -->
+          <div class="note-expanded d-none">
+            <div class="note-expanded-inner">
+              <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
+              <h5 class="card-title expanded-title">Gift Giving to the School Utility Personnel</h5>
+
+              <div class="card-preview" id="Sections-GiftGiving_Utility"></div>
+
+              <div class="card-footer text-white-100 small pt-2">
+                <h6 class="card-title mb-0">Gift Giving to the School Utility Personnel</h6>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add more here -->
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "><!--Gift-Giving_students-->
+        <div class="card text-bg-primary p-3 note grain" data-note>
+          <h5 class="card-title">Gift Giving - Carlosians Paskuhan</h5>
+
+          <!-- Preview -->
+          <!--
+          <div class="card-preview">
+            <div class="row">
+              <div class="col-6">Name</div>
+              <div class="col-6">Position</div>
+            </div>
+          </div>
+          -->
+
+          <div class="card-footer text-white-100 small pt-2">
+            <h6 class="card-title mb-0">December 16, 2025</h6>
+          </div>
+
+          <!-- Expanded View -->
+          <div class="note-expanded d-none">
+            <div class="note-expanded-inner">
+              <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
+              <h5 class="card-title expanded-title">Gift Giving - Carlosians Paskuhan</h5>
+
+              <div class="card-preview" id="Sections-GiftGiving_students"></div>
+
+              <div class="card-footer text-white-100 small pt-2">
+                <h6 class="card-title mb-0">Gift Giving - Carlosians Paskuhan</h6>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add more here -->
+        </div>
+      </div>
+
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "><!--Awardings Gawad-SAFE-CCLASS-->
-        <div class="card text-bg-primary p-3 note grain"  data-note>
+        <div class="card text-bg-primary p-3 note grain" data-note>
           <h5 class="card-title">3rd Q Gawad SAFE-CCLASS Winners</h5>
 
           <!-- Preview -->
@@ -375,7 +520,8 @@ Click on an event to view the list of certificate recipients.</p>
           <div class="note-expanded d-none">
             <div class="note-expanded-inner">
               <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
-              <h5 class="card-title expanded-title">3rd Quarter Gawad SAFE-CCLASS (School Award for Facilities Excellence - Classroom Cleanliness and Safety Standards)</h5>
+              <h5 class="card-title expanded-title">3rd Quarter Gawad SAFE-CCLASS (School Award for Facilities
+                Excellence - Classroom Cleanliness and Safety Standards)</h5>
 
               <div class="card-preview" id="Sections"></div>
 
@@ -411,7 +557,8 @@ Click on an event to view the list of certificate recipients.</p>
           <div class="note-expanded d-none">
             <div class="note-expanded-inner">
               <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
-              <h5 class="card-title expanded-title">Search for the 3rd Quarter Gawad SAFE-CCLASS (School Award for Facilities Excellence - Classroom Cleanliness and Safety Standards)</h5>
+              <h5 class="card-title expanded-title">Search for the 3rd Quarter Gawad SAFE-CCLASS (School Award for
+                Facilities Excellence - Classroom Cleanliness and Safety Standards)</h5>
 
               <div class="card-preview" id="Sections-Search"></div>
 
@@ -426,7 +573,7 @@ Click on an event to view the list of certificate recipients.</p>
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "><!--4th NSED-->
-        <div class="card text-bg-primary p-3 note grain"  data-disabled data-note>
+        <div class="card text-bg-primary p-3 note grain" data-disabled data-note>
           <h5 class="card-title">Fourth Quarter NSED</h5>
 
           <!-- Preview -->
@@ -513,7 +660,7 @@ Click on an event to view the list of certificate recipients.</p>
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "><!-- SSS (Oct) -->
-        <div class="card text-bg-primary p-3 note grain"  data-note>
+        <div class="card text-bg-primary p-3 note grain" data-note>
           <h5 class="card-title">SSS (October)</h5>
 
           <!-- Preview -->
@@ -556,8 +703,8 @@ Click on an event to view the list of certificate recipients.</p>
         </div>
       </div>
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 " ><!--Cheerdance and Zumba-->
-        <div class="card text-bg-primary p-3 note grain"  data-note data-disabled>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "><!--Cheerdance and Zumba-->
+        <div class="card text-bg-primary p-3 note grain" data-note data-disabled>
           <h5 class="card-title">Assisted on Cheerdance and Zumba</h5>
 
           <!-- Preview -->
@@ -607,7 +754,7 @@ Click on an event to view the list of certificate recipients.</p>
         </div>
       </div>
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 " ><!--Reiteration on Earthquake-->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "><!--Reiteration on Earthquake-->
         <div class="card text-bg-primary p-3 note grain" data-note data-disabled>
           <h5 class="card-title">Reiteration on Earthquake Precautionary</h5>
 
@@ -629,7 +776,8 @@ Click on an event to view the list of certificate recipients.</p>
           <div class="note-expanded d-none">
             <div class="note-expanded-inner">
               <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
-              <h5 class="card-title expanded-title">School Reiteration on Earthquake Precautionary Measures and Drill</h5>
+              <h5 class="card-title expanded-title">School Reiteration on Earthquake Precautionary Measures and Drill
+              </h5>
 
               <!-- <div class="class-preview">
                 <div class="row">
@@ -658,8 +806,8 @@ Click on an event to view the list of certificate recipients.</p>
         </div>
       </div>
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 " ><!--Division Rescuelympics-->
-        <div class="card text-bg-primary p-3 note grain"  data-note data-disabled>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "><!--Division Rescuelympics-->
+        <div class="card text-bg-primary p-3 note grain" data-note data-disabled>
           <h5 class="card-title">Division Rescuelympics</h5>
 
           <!-- Preview -->
@@ -710,7 +858,7 @@ Click on an event to view the list of certificate recipients.</p>
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "><!-- SSS (Sep) -->
-        <div class="card text-bg-primary p-3 note grain"  data-note>
+        <div class="card text-bg-primary p-3 note grain" data-note>
           <h5 class="card-title">SSS (September)</h5>
 
           <!-- Preview -->
@@ -805,7 +953,7 @@ Click on an event to view the list of certificate recipients.</p>
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "><!-- EDDIS III Rescuelympics-->
-        <div class="card text-bg-primary p-3 note grain"  data-note data-disabled>
+        <div class="card text-bg-primary p-3 note grain" data-note data-disabled>
           <h5 class="card-title">EDDIS III Rescuelympics</h5>
 
           <!-- Preview -->
@@ -826,24 +974,16 @@ Click on an event to view the list of certificate recipients.</p>
           <div class="note-expanded d-none">
             <div class="note-expanded-inner">
               <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
-              <h5 class="card-title expanded-title">Educational District (EDDIS) III Rescue Olympics 2025 with the SERT Fire Safety & Warning and DRRM In Education Committee Members</h5>
+              <h5 class="card-title expanded-title">Educational District (EDDIS) III Rescue Olympics 2025 with the SERT
+                Fire Safety & Warning and DRRM In Education Committee Members</h5>
 
-              <!-- <div class="class-preview">
+              <div class="class-preview">
                 <div class="row">
-                  <div class="Yes">SERT Officers A.Y. 2025-2026</div>
+                  <div class="Yes">Clubs and Organizations S.Y. 2025-2026</div>
                 </div>
               </div>
 
               <div class="card-preview" id="SERT-3nsed"></div>
-
-              <div class="class-preview">
-                <div class="row">
-                  <div class="Yes">SERT Members of SSS Committee</div>
-                </div>
-              </div>
-
-
-              <div class="card-preview" id="SERT-Member-3nsed"></div> -->
 
               <div class="card-footer text-white-100 small pt-2">
                 <h6 class="card-title mb-0">EDDIS III Rescuelympics</h6>
@@ -907,7 +1047,7 @@ Click on an event to view the list of certificate recipients.</p>
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "><!-- PTA Meeting-->
-        <div class="card text-bg-primary p-3 note grain"  data-note data-disabled>
+        <div class="card text-bg-primary p-3 note grain" data-note data-disabled>
           <h5 class="card-title">Parent-Teacher Conference</h5>
 
           <!-- Preview -->
@@ -928,8 +1068,9 @@ Click on an event to view the list of certificate recipients.</p>
           <div class="note-expanded d-none">
             <div class="note-expanded-inner">
               <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
-              <h5 class="card-title expanded-title">Parent-Teacher Conference and Distribution of Report Cards for the First Quarter S.Y 2025-2026</h5>
-<!-- 
+              <h5 class="card-title expanded-title">Parent-Teacher Conference and Distribution of Report Cards for the
+                First Quarter S.Y 2025-2026</h5>
+              <!-- 
               <div class="card-preview" id="SERT-pta"></div> -->
 
               <div class="card-footer text-white-100 small pt-2">
@@ -964,7 +1105,8 @@ Click on an event to view the list of certificate recipients.</p>
           <div class="note-expanded d-none">
             <div class="note-expanded-inner">
               <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
-              <h5 class="card-title expanded-title">2025 Municipal WASH (WAter, Sanitation & Hygiene) in Schools Monitoring, Validation, and Provision of Technical Assistance</h5>
+              <h5 class="card-title expanded-title">2025 Municipal WASH (WAter, Sanitation & Hygiene) in Schools
+                Monitoring, Validation, and Provision of Technical Assistance</h5>
 
               <div class="class-preview">
                 <div class="row">
@@ -1020,7 +1162,7 @@ Click on an event to view the list of certificate recipients.</p>
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "><!-- SSS (Aug) -->
-        <div class="card text-bg-primary p-3 note grain"  data-note>
+        <div class="card text-bg-primary p-3 note grain" data-note>
           <h5 class="card-title">SSS (August)</h5>
 
           <!-- Preview -->
@@ -1106,7 +1248,7 @@ Click on an event to view the list of certificate recipients.</p>
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "><!-- August Monthly Clean-Up Drive-->
-        <div class="card text-bg-primary p-3 note grain"  data-note>
+        <div class="card text-bg-primary p-3 note grain" data-note>
           <h5 class="card-title">August Monthly Clean-Up Drive w/ LGU</h5>
 
           <!-- Preview -->
@@ -1208,7 +1350,7 @@ Click on an event to view the list of certificate recipients.</p>
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "><!-- SSS (July) -->
-        <div class="card text-bg-primary p-3 note grain"  data-note>
+        <div class="card text-bg-primary p-3 note grain" data-note>
           <h5 class="card-title">SSS (July)</h5>
 
           <!-- Preview -->
@@ -1273,7 +1415,8 @@ Click on an event to view the list of certificate recipients.</p>
           <div class="note-expanded d-none">
             <div class="note-expanded-inner">
               <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
-              <h5 class="card-title expanded-title">Symposium on Emergency Preparedness and Response for Grade 10 Students</h5>
+              <h5 class="card-title expanded-title">Symposium on Emergency Preparedness and Response for Grade 10
+                Students</h5>
 
               <div class="class-preview">
                 <div class="row">
@@ -1311,7 +1454,7 @@ Click on an event to view the list of certificate recipients.</p>
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "><!-- Project ALAGA -->
-        <div class="card text-bg-primary p-3 note grain"  data-note>
+        <div class="card text-bg-primary p-3 note grain" data-note>
           <h5 class="card-title">Project ALAGA</h5>
 
           <!-- Preview -->
@@ -1332,7 +1475,8 @@ Click on an event to view the list of certificate recipients.</p>
           <div class="note-expanded d-none">
             <div class="note-expanded-inner">
               <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
-              <h5 class="card-title expanded-title">SDO Bulacan's Divisions Project ALAGA (Assesment for Learners Access to Good Amenities) Facilitiy Monitoring</h5>
+              <h5 class="card-title expanded-title">SDO Bulacan's Divisions Project ALAGA (Assesment for Learners Access
+                to Good Amenities) Facilitiy Monitoring</h5>
 
               <!--
               <div class="class-preview">
@@ -1399,7 +1543,7 @@ Click on an event to view the list of certificate recipients.</p>
       </div>
 
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 "> <!-- Gawad KALASAG -->
-        <div class="card text-bg-primary p-3 note grain"  data-note>
+        <div class="card text-bg-primary p-3 note grain" data-note>
           <h5 class="card-title">Gawad KALASAG 2025</h5>
 
           <!-- Preview -->
@@ -1420,7 +1564,8 @@ Click on an event to view the list of certificate recipients.</p>
           <div class="note-expanded d-none">
             <div class="note-expanded-inner">
               <button class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2 btn-close-note">&times;</button>
-              <h5 class="card-title expanded-title">Regional Search for GAWAD KALASAG (Kalamidad at Sakuna ay Labanan, Sariling Galing ang Kaligtasan) 2025</h5>
+              <h5 class="card-title expanded-title">Regional Search for GAWAD KALASAG (Kalamidad at Sakuna ay Labanan,
+                Sariling Galing ang Kaligtasan) 2025</h5>
 
               <div class="class-preview">
                 <div class="row">
@@ -1527,30 +1672,31 @@ Click on an event to view the list of certificate recipients.</p>
     </div>
   </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll('.card');
-  const baseDelay = 500;
-  const stagger = 200;  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll('.card');
+      const baseDelay = 500;
+      const stagger = 200;
 
-  
-  setTimeout(() => {
-    cards.forEach((card, index) => {
+
       setTimeout(() => {
-        card.classList.add('show');
-      }, baseDelay + index * stagger);
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('show');
+          }, baseDelay + index * stagger);
+        });
+      }, 100);
     });
-  }, 100);
-});
-</script>
+  </script>
 
   <script src="Assets/Sidebar+ToggleBtn+SearchForm+SearchInput.js"></script>
   <script src="Assets/Toast.js"></script>
   <script src="Assets/Actions Disabled.js"></script>
   <script src="Assets/Load names.js"></script>
   <script src="Assets/include.js"></script>
-  
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init();</script>
 </body>
+
 </html>
