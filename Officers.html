@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,7 +15,7 @@
     /* Card design */
     :root {
       --gray: #333;
-      --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       --transition: 0.6s ease;
     }
 
@@ -39,7 +40,8 @@
       width: 100%;
     }
 
-    .front, .back {
+    .front,
+    .back {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -50,10 +52,21 @@
       box-shadow: var(--card-shadow);
     }
 
-    .front { transform: rotateY(0deg); }
-    .back { transform: rotateY(180deg); }
-    .f-b:hover .front { transform: rotateY(-180deg); }
-    .f-b:hover .back { transform: rotateY(0deg); }
+    .front {
+      transform: rotateY(0deg);
+    }
+
+    .back {
+      transform: rotateY(180deg);
+    }
+
+    .f-b:hover .front {
+      transform: rotateY(-180deg);
+    }
+
+    .f-b:hover .back {
+      transform: rotateY(0deg);
+    }
 
     .f-b img {
       width: 100%;
@@ -65,8 +78,18 @@
       border-radius: 10px;
     }
 
-    @media (max-width: 768px) { .panels li { width: 45%; } }
-    @media (max-width: 576px) { .panels li { width: 100%; max-width: 300px; } }
+    @media (max-width: 768px) {
+      .panels li {
+        width: 45%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .panels li {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
 
     /* Officer details text */
     .officer-info {
@@ -100,7 +123,8 @@
   <!-- Header/Navbar -->
   <nav class="navbar navbar-light bg-primary shadow-sm fixed-top" data-bs-theme="dark">
     <div class="container-fluid">
-      <div class="d-flex flex-column flex-lg-row w-100 align-items-start align-items-lg-center justify-content-lg-between">
+      <div
+        class="d-flex flex-column flex-lg-row w-100 align-items-start align-items-lg-center justify-content-lg-between">
         <div class="d-flex align-items-center w-100 w-lg-auto justify-content-start mb-2 mb-lg-0">
           <button class="btn btn-outline-secondary me-2 toggleBtn" id="toggleBtn">☰</button>
           <img src="Assets/low quality.png" alt="Logo" width="40" style="margin-right: 0.2rem;">
@@ -109,14 +133,10 @@
         </div>
 
         <!-- Search Bar -->
-        <form id="searchForm" class="d-flex w-100 w-lg-auto justify-content-center justify-content-lg-end" role="search">
-          <input
-            id="searchInput"
-            class="form-control me-2 bg-white text-dark w-75 w-lg-auto"
-            type="search"
-            placeholder="Search Name / Section / Club / Event"
-            aria-label="Search"
-          />
+        <form id="searchForm" class="d-flex w-100 w-lg-auto justify-content-center justify-content-lg-end"
+          role="search">
+          <input id="searchInput" class="form-control me-2 bg-white text-dark w-75 w-lg-auto" type="search"
+            placeholder="Search Name / Section / Club / Event" aria-label="Search" />
         </form>
       </div>
     </div>
@@ -142,6 +162,7 @@
     <div class="row" id="noteContainer">
 
       <div class="wrapper">
+        <ul class="panels" id="officerList1"></ul>
         <ul class="panels" id="officerList"></ul>
       </div>
 
@@ -200,7 +221,11 @@
       { frontImg: "Officers/Images/Front/45.png", backImg: "Officers/Images/Back/45.png", name: "JB Adam U. Bassig", rank: "Student Family Reunification Chairman" },
       { frontImg: "Officers/Images/Front/46.png", backImg: "Officers/Images/Back/46.png", name: "Keiko Hatsumi F. Soquerata", rank: "Student Family Reunification Vice Chairwoman" },
       { frontImg: "Officers/Images/Front/47.png", backImg: "Officers/Images/Back/47.png", name: "Jonash Mark T. Ibaya", rank: "Transportation Chairman" },
-      { frontImg: "Officers/Images/Front/48.png", backImg: "Officers/Images/Back/48.png", name: "Harry David D. Bermudez", rank: "Transportation Vice Chairman" }
+      { frontImg: "Officers/Images/Front/48.png", backImg: "Officers/Images/Back/48.png", name: "Harry David D. Bermudez", rank: "Transportation Vice Chairman" },
+    ];
+
+    const officers1 = [
+      { frontImg1: "Officers/Images/Front/49.png", backImg1: "Officers/Images/Back/49.png", name1: "Roy Oliver G. Fama", rank1: "SDRRM (School Disaster Risk Reduction and Management) Advocate" },
     ];
 
     const list = document.getElementById("officerList");
@@ -219,6 +244,23 @@
         </li>
       `;
     });
+
+    const list1 = document.getElementById("officerList1");
+
+    officers1.forEach(officer => {
+      list1.innerHTML += `
+        <li>
+          <div class="f-b mt-3">
+            <div class="front"><img src="${officer.frontImg1}" alt="${officer.name1} Front"></div>
+            <div class="back"><img src="${officer.backImg1}" alt="${officer.name1} Back"></div>
+          </div>
+          <div class="officer-info text-center mt-2">
+            <h5>${officer.name1}</h5>
+            <p>${officer.rank1}</p>
+          </div>
+        </li>
+      `;
+    });
   </script>
 
   <script src="Assets/Sidebar+ToggleBtn+SearchForm+SearchInput.js"></script>
@@ -226,9 +268,34 @@
   <script src="Assets/Actions Disabled.js"></script>
   <script src="Assets/Load names.js"></script>
   <script src="Assets/include.js"></script>
-  
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init();</script>
 
+  <script>
+    function adjustMainWidth() {
+      const main = document.querySelector(".main");
+      const sidebar = document.getElementById("sidebar");
+
+      if (!main || !sidebar) return;
+
+      const screenWidth = window.innerWidth;
+      const sidebarWidth = sidebar.offsetWidth;
+
+      // Sidebar is considered expanded if it DOES NOT have the "collapsed" class
+      const isExpanded = !sidebar.classList.contains("collapsed");
+
+      if (isExpanded) {
+        main.style.maxWidth = (screenWidth - sidebarWidth) + "px";
+      } else {
+        main.style.maxWidth = screenWidth + "px";
+      }
+
+      main.style.width = "100%";
+      main.style.overflowX = "hidden";
+    }
+  </script>
+
 </body>
+
 </html>
