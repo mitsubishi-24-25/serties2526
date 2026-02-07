@@ -280,7 +280,7 @@ fetch("Certificates/json/Search_3rd_Q_Safecclass.json")
 fetch("Certificates/json/Info_Distribution.json")
   .then((response) => response.json())
   .then((data) => {
-    const container = document.getElementById("Back-To-School");
+    const container = document.getElementById("Info_Distribution");
     data.forEach((student) => {
       const row = document.createElement("div");
       row.className = "row gx-2";
@@ -296,7 +296,8 @@ fetch("Certificates/json/Sep_Clean-Up.json")
   .then((response) => response.json())
   .then((data) => {
     const container1 = document.getElementById("Officer-sep-cleanup");
-    const container2 = document.getElementById("Member-sep-cleanup");
+    const container2 = document.getElementById("material-sep-cleanup");
+    const container3 = document.getElementById("solid-sep-cleanup");
 
     data.v1.forEach((student) => {
       const row = document.createElement("div");
@@ -316,6 +317,16 @@ fetch("Certificates/json/Sep_Clean-Up.json")
         <div class="col-4">${student.section}</div>
       `;
       container2.appendChild(row);
+    });
+
+    data.v3.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container3.appendChild(row);
     });
   });
 
@@ -438,8 +449,8 @@ fetch("Certificates/json/SSS-Aug.json")
 fetch("Certificates/json/August Clean-Up.json")
   .then((response) => response.json())
   .then((data) => {
-    const container1 = document.getElementById("Officer");
-    const container2 = document.getElementById("Member");
+    const container1 = document.getElementById("Officer-aug-cleanup");
+    const container2 = document.getElementById("Member-aug-cleanup");
 
     data.v1.forEach((student) => {
       const row = document.createElement("div");
@@ -563,11 +574,11 @@ fetch("Certificates/json/Symposium_AP.json")
 fetch("Certificates/json/Gawad_Kalasag.json")
   .then((response) => response.json())
   .then((data) => {
-    const container0 = document.getElementById("Clubs");
-    const container1 = document.getElementById("SERT");
-    const container2 = document.getElementById("SERT-Member");
-    const container3 = document.getElementById("SSLG");
-    const container4 = document.getElementById("BoyScout");
+    const container0 = document.getElementById("Clubs-kalasag");
+    const container1 = document.getElementById("SERT-kalasag");
+    const container2 = document.getElementById("SERT-Member-kalasag");
+    const container3 = document.getElementById("SSLG-kalasag");
+    const container4 = document.getElementById("BoyScout-kalasag");
 
     data.Clubs.forEach((student) => {
       const row = document.createElement("div");
