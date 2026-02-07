@@ -1,0 +1,84 @@
+{
+  "v1": [
+    {
+      "name": "Ceanceno M. Espiritu, Jr., PhD",
+      "section": "Over-All Chairman of EDDIS III"
+    }
+  ],
+  "v2": [
+    {
+      "name": "Aimee Korine Mercado",
+      "section": "Over-All Chairman of EDDIS III"
+    },
+    { "name": "April Shena Macalino", "section": "" },
+    { "name": "Dolores R. Paco", "section": "" },
+    { "name": "Francisco Manarang", "section": "" },
+    { "name": "Gerardo P. Legaspi", "section": "" },
+    { "name": "Jennifer Alcantara", "section": "" },
+    { "name": "Kristine Vizmonte", "section": "" },
+    { "name": "Ma. Cecilia M. Delos Reyes", "section": "" },
+    { "name": "Ramil F. Sarmiento", "section": "" },
+    { "name": "Reana I. Tuazon", "section": "" },
+    { "name": "Roy Oliver G. Fama", "section": "" },
+    { "name": "Ruth Nerie Ann G. Hidalgo", "section": "" },
+    { "name": "Sheryl R. Fulgencio", "section": "" }
+  ],
+  "v3": [
+    { "name": "Boy Scouts of the Philippines" , "section": "" },
+    { "name": "Sports Club", "section": "" },
+    { "name": "Supreme Secondary Learner Government", "section": "" }
+  ],
+  "v4": [
+    { "name": "Arreglo, Maria Leoniza B.", "section": "7-Aranda" },
+    { "name": "Castillo, Solenn Jade T.", "section": "8-Plaridel" },
+    { "name": "Domanais, Jhuztin Jane O.", "section": "8-Plaridel" },
+    { "name": "Cruz, Eumie Arielle B.", "section": "9 - Diamond" },
+    { "name": "Eugenio, Leehyan Heny R.", "section": "9 - Diamond" },
+    { "name": "Leonardo, Jared S.", "section": "9 - Diamond" },
+    { "name": "Nollas, Jenny L.", "section": "9 - Diamond" },
+    { "name": "Rapsing, Gabriel Ian S.", "section": "9 - Diamond" },
+    { "name": "Alvarez, Prince Ryu C.", "section": "10 - Narra" },
+    { "name": "Bermudez, Harry David D.", "section": "10 - Narra" },
+    { "name": "Clemente, Althea Mariz P.", "section": "10 - Narra" },
+    { "name": "Coronel, Ily Eryn V.", "section": "10 - Narra" },
+    { "name": "Gatus, Charise L.", "section": "10 - Narra" },
+    { "name": "Hernando, Feliz C.", "section": "10 - Narra" },
+    { "name": "Payumo, James Renz DC.", "section": "10 - Narra" },
+    { "name": "Reyes, Joana Therese E.", "section": "10 - Narra" },
+    { "name": "Romero, Mara Ianah M.", "section": "10 - Narra" },
+    { "name": "Soquerata, Keiko Hatsumi F.", "section": "10 - Narra" },
+    { "name": "Bolinas, Jeremiah L.", "section": "10 - Newton (STE)" },
+    { "name": "Valdecantos, Rhayvenn L.", "section": "10 - Newton (STE)" },
+    { "name": "Victoria, Ayesha Jane V.", "section": "10 - Newton (STE)" },
+    { "name": "Magbanua, Joey B.", "section": "11 - STEM C" },
+    { "name": "Geronimo, Cassandra Danielle J.", "section": "11 - STEM D" },
+    { "name": "Vardeleon, Uan Carl V.", "section": "12 - GAS A" },
+    { "name": "Bassig, Jb Adam U.", "section": "12 - ICT A" },
+    { "name": "Bulatao, Clarence Jefferson T.", "section": "12 - ICT A" },
+    { "name": "Dela Cruz, Arvince D.", "section": "12 - ICT A" },
+    { "name": "Dela Rosa, Rocky N.", "section": "12 - ICT A" },
+    { "name": "Santillan, Jericho", "section": "12 - ICT A" },
+    { "name": "Santos, Justine Ariz F.", "section": "12 - ICT A" },
+    { "name": "Borcelo, Angel Khate G.", "section": "12 - STEM A" },
+    { "name": "Carmona, Angel Erica Mitz R.", "section": "12 - STEM A" },
+    { "name": "Cruz, Maria Shekainah Grace M.", "section": "12 - STEM A" },
+    { "name": "Espiritu, Paulyn DL.", "section": "12 - STEM A" },
+    { "name": "Ibaya, Jonash Mark T.", "section": "12 - STEM A" },
+    { "name": "Santiago, Patricia Ysabel I.", "section": "12 - STEM B" },
+    { "name": "Eugenio, Lance Henrick R.", "section": "12 - STEM C" },
+    { "name": "Santos, Vanne Ariz F.", "section": "12 - STEM C" },
+    { "name": "Torres, Giane Migzie M.", "section": "12 - STEM D" },
+    { "name": "Valderama, Jon Jacob D.", "section": "12 - STEM D" }
+  ],
+  "v5": [
+    { "name": "Jobelle Caasi", "section": "10 - Banaba" },
+    { "name": "Trista Clouie Balmadrid", "section": "10 - Banaba" },
+    { "name": "Michelle Gian Torres", "section": "10 - Molave" },
+    { "name": "Edwin Abrera", "section": "10 - Narra" },
+    { "name": "Ryril Medina", "section": "12 - GAS G" },
+    { "name": "Rose Jean T. Malacapo", "section": "12 - STEM B" },
+    { "name": "Sheryn Mae V. Dela Cruz", "section": "7 - Sampaguita" },
+    { "name": "Nica Jane Parungao", "section": "9 - Opal" }
+  ],
+  "v6": [{ "name": "Lorrelyn P. Cruz", "section": "12 - STEM A" }]
+}
