@@ -67,11 +67,42 @@ fetch("Certificates/json/Rescue_Olympics.json")
     });
   });
 
+fetch("Certificates/json/January-Cleanup.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const container = document.getElementById("January-Cleanup");
+    data.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container.appendChild(row);
+    });
+  });
+
+fetch("Certificates/json/XPERTHINK.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const container = document.getElementById("XPERTHINK");
+    data.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container.appendChild(row);
+    });
+  });
+
 fetch("Certificates/json/NSED-4th.json")
   .then((response) => response.json())
   .then((data) => {
     const container0 = document.getElementById("Officer-4th-NSED");
     const container1 = document.getElementById("Member-4th-NSED");
+    const container2 = document.getElementById("Member-4th-NSED-sss");
 
     data.v1.forEach((student) => {
       const row = document.createElement("div");
@@ -91,6 +122,16 @@ fetch("Certificates/json/NSED-4th.json")
         <div class="col-4">${student.section}</div>
       `;
       container1.appendChild(row);
+    });
+
+    data.v3.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container2.appendChild(row);
     });
   });
 
@@ -124,7 +165,7 @@ fetch("Certificates/json/Tree_Planting_2026.json")
     });
   });
 
-    fetch("Certificates/json/Gift-Giving_students.json")
+fetch("Certificates/json/Gift-Giving_students.json")
   .then((response) => response.json())
   .then((data) => {
     const container = document.getElementById("Sections-GiftGiving_students");
@@ -139,7 +180,56 @@ fetch("Certificates/json/Tree_Planting_2026.json")
     });
   });
 
-  fetch("Certificates/json/Gift-Giving_Utility.json")
+fetch("Certificates/json/Gawad_Kalakbay.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const container1 = document.getElementById("Gawad_Kalakbay-officer");
+    const container2 = document.getElementById("Gawad_Kalakbay-dsg");
+    const container3 = document.getElementById("Gawad_Kalakbay-sss");
+    const container4 = document.getElementById("Gawad_Kalakbay-aid");
+
+    data.v1.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container1.appendChild(row);
+    });
+
+    data.v2.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container2.appendChild(row);
+    });
+
+    data.v3.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container3.appendChild(row);
+    });
+
+    data.v4.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container4.appendChild(row);
+    });
+  });
+
+fetch("Certificates/json/Gift-Giving_Utility.json")
   .then((response) => response.json())
   .then((data) => {
     const container = document.getElementById("Sections-GiftGiving_Utility");
@@ -153,7 +243,6 @@ fetch("Certificates/json/Tree_Planting_2026.json")
       container.appendChild(row);
     });
   });
-  
 
 fetch("Certificates/json/Gift-Giving_Community.json")
   .then((response) => response.json())
@@ -627,5 +716,134 @@ fetch("Certificates/json/Gawad_Kalasag.json")
         <div class="col-4">${student.section}</div>
       `;
       container4.appendChild(row);
+    });
+  });
+
+fetch("Certificates/json/Hazzard-Mapping.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const container0 = document.getElementById("Hazzard-Mapping");
+    const container1 = document.getElementById("Hazzard-Mapping-dsg");
+    const container2 = document.getElementById("Hazzard-Mapping-educ");
+    const container3 = document.getElementById("Hazzard-Mapping-sss");
+
+    data.v1.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container0.appendChild(row);
+    });
+
+    data.v2.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container1.appendChild(row);
+    });
+
+    data.v3.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container2.appendChild(row);
+    });
+
+    data.v4.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container3.appendChild(row);
+    });
+  });
+
+fetch("Certificates/json/Election-of-SPTA.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const container0 = document.getElementById("Election-of-SPTA");
+
+    data.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container0.appendChild(row);
+    });
+  });
+
+fetch("Certificates/json/NDRM-Kick-Off.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const container0 = document.getElementById("NDRM-Kick-Off");
+
+    data.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container0.appendChild(row);
+    });
+  });
+
+fetch("Certificates/json/D2-Brigada.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const container0 = document.getElementById("D2-Brigada");
+
+    data.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container0.appendChild(row);
+    });
+  });
+
+fetch("Certificates/json/D1-Brigada.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const container0 = document.getElementById("D1-Brigada");
+
+    data.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container0.appendChild(row);
+    });
+  });
+
+fetch("Certificates/json/School-Based-Training.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const container0 = document.getElementById("School-Based-Training");
+
+    data.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container0.appendChild(row);
     });
   });
