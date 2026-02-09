@@ -110,6 +110,7 @@ if (searchInput) {
         const query = searchInput.value.toLowerCase();
         const notes = document.querySelectorAll("#noteContainer .card");
         const officers = document.querySelectorAll("#officerList li");
+        const officers1 = document.querySelectorAll("#officerList1 li");
 
         if (notes.length > 0) {
             notes.forEach(note => {
@@ -123,6 +124,16 @@ if (searchInput) {
                 const name = li.querySelector(".officer-info h5")?.textContent.toLowerCase() || "";
                 const rank = li.querySelector(".officer-info p")?.textContent.toLowerCase() || "";
                 const match = name.includes(query) || rank.includes(query);
+
+                li.style.display = match ? "block" : "none";
+            });
+        }
+
+        if (officers1.length > 0) {
+            officers1.forEach(li => {
+                const name1 = li.querySelector(".officer-info h5")?.textContent.toLowerCase() || "";
+                const rank1 = li.querySelector(".officer-info p")?.textContent.toLowerCase() || "";
+                const match = name1.includes(query) || rank1.includes(query);
 
                 li.style.display = match ? "block" : "none";
             });
