@@ -1,3 +1,64 @@
+fetch("Certificates/json/SSS-Feb.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const container = document.getElementById("SSS-Feb");
+    data.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container.appendChild(row);
+    });
+  });
+
+fetch("Certificates/json/SSS-Jan.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const container = document.getElementById("SSS-Jan");
+    data.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container.appendChild(row);
+    });
+  });
+
+fetch("Certificates/json/SSS-Dec.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const container = document.getElementById("SSS-Dec");
+    data.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container.appendChild(row);
+    });
+  });
+
+fetch("Certificates/json/SSS-Nov.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const container = document.getElementById("SSS-Nov");
+    data.forEach((student) => {
+      const row = document.createElement("div");
+      row.className = "row gx-2";
+      row.innerHTML = `
+        <div class="col-8">${student.name}</div>
+        <div class="col-4">${student.section}</div>
+      `;
+      container.appendChild(row);
+    });
+  });
+
+
 fetch("Certificates/json/Rescue_Olympics.json")
   .then((response) => response.json())
   .then((data) => {
@@ -67,7 +128,7 @@ fetch("Certificates/json/Rescue_Olympics.json")
     });
   });
 
-fetch("Certificates/json/January-Cleanup.json")
+fetch("Certificates/json/Clean_Up-January.json")
   .then((response) => response.json())
   .then((data) => {
     const container = document.getElementById("January-Cleanup");
@@ -381,7 +442,7 @@ fetch("Certificates/json/Info_Distribution.json")
     });
   });
 
-fetch("Certificates/json/Sep_Clean-Up.json")
+fetch("Certificates/json/Clean_Up-Sep.json")
   .then((response) => response.json())
   .then((data) => {
     const container1 = document.getElementById("Officer-sep-cleanup");
@@ -535,7 +596,7 @@ fetch("Certificates/json/SSS-Aug.json")
     });
   });
 
-fetch("Certificates/json/August Clean-Up.json")
+fetch("Certificates/json/Clean_Up-August.json")
   .then((response) => response.json())
   .then((data) => {
     const container1 = document.getElementById("Officer-aug-cleanup");
@@ -577,7 +638,7 @@ fetch("Certificates/json/Back-To-School.json")
     });
   });
 
-fetch("Certificates/json/July Clean-Up.json")
+fetch("Certificates/json/Clean_Up-July.json")
   .then((response) => response.json())
   .then((data) => {
     const container = document.getElementById("July_Clean-Up");
